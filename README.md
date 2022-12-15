@@ -59,7 +59,7 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
 3.) Web Attack, XSS & SQL Injection          > tools web attack, Xss dan sql injection
 4.) Wireless Attack {New}                    > tools wifi attack, Fluxion - Evillimiter
 5.) Sniffing & MITM ATTACK {New}             > tools penyadapan dan serangan ManInTheMidle Attack
-6.) Social Enggineering {SOON}               > tools rekayasa sosial  
+6.) Social Enggineering {new}                > tools rekayasa sosial  
 ```
 ## Instalation For Kali Linux, Parrot Os, Nethunter, Ubuntu (Dicoba Aja)
 ```
