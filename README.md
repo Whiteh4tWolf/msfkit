@@ -33,12 +33,12 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
 
 ## Features : 
 ```  
-1.) Information Gathering                    > tools mencari informasi
+1.) Information Gathering                    > tools mencari informasi, mengumpulkan data
 2.) Exploit Attack Metasploit                > tools exploit, dengan metasploit-framework { create payload, embed payload, listerner }
-3.) Web Attack, XSS & SQL Injection          > tools web attack, Xss dan sql injection
+3.) Web Attack                               > tools web attack, Xss dan sql injection, dirsearch, subdomain enumeration
 4.) Wireless Attack {New}                    > tools wifi attack, Fluxion - Evillimiter
 5.) Sniffing & MITM ATTACK {New}             > tools penyadapan dan serangan ManInTheMidle Attack
-6.) Social Enggineering {new}                > tools rekayasa sosial  
+6.) Social Enggineering {new}                > tools rekayasa sosial, spoofing ( teknik penyamaran ), phising attack, tracking location
 ```
 ## Instalation For Kali Linux, Parrot Os, Nethunter, Ubuntu (Dicoba Aja)
 ```
