@@ -22,7 +22,7 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
  
 ## Disclaimer
 ```
-<b>Don't Be Evil!!</b> <i>Author tidak akan bertanggung jawab atas, perbuatan yang kalian lakukan!!</i>
+Don't Be Evil!!, Author tidak akan bertanggung jawab atas, perbuatan yang kalian lakukan!!
 ```
  
 # Screenshot 
