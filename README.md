@@ -26,9 +26,9 @@ Don't Be Evil!!, Author tidak akan bertanggung jawab atas, perbuatan yang kalian
 ***
  
 # Screenshot 
-<img src="/images/menu" alt="menu" style="width:503px;height:310px;"> <img src="/images/information%20gathering" alt="information gathering" style="width:503px;height:310px;">
-<img src="/images/exploit%20attack" alt="exploit attack" style="width:503px;height:310px;"> <img src="/images/web%20attack" alt="web attack" style="width:503px;height:310px;">
-<img src="/images/wifi%20attack" alt="wireless attack" style="width:503px;height:310px;"> <img src="/images/sniffing" alt="sniffing" style="width:503px;height:310px;"> 
+<img src="/images/menu" alt="menu" style="width:500px;height:310px;"> <img src="/images/information%20gathering" alt="information gathering" style="width:500px;height:310px;">
+<img src="/images/exploit%20attack" alt="exploit attack" style="width:500px;height:310px;"> <img src="/images/web%20attack" alt="web attack" style="width:500px;height:310px;">
+<img src="/images/wifi%20attack" alt="wireless attack" style="width:500px;height:310px;"> <img src="/images/sniffing" alt="sniffing" style="width:500px;height:310px;"> 
 <img src="/images/social%20engineering" alt="social engineering" style="width:505px;height:380px;margin: 90px;width: 100%;">
 
 ## Features : 
