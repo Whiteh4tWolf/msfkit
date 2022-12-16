@@ -27,11 +27,11 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
  
 # Screenshot 
 
-<img src="/images/menu" widht=100px height=300px alt="menu"> <img src="/images/information%20gathering" widht=100px height=300px alt="information gathering">
+<img src="/images/menu" widht="100" height="300" alt="menu"> <img src="/images/information%20gathering" widht="100" height="300" alt="information gathering">
 
-<img src="/images/exploit%20attack" widht=100px height=300px alt="exploit attack"> 
+<img src="/images/exploit%20attack"  widht="100" height="300" alt="exploit attack"> 
 
-<img src="/images/web%20attack" widht=10px height=150px alt="web attack"> 
+<img src="/images/web%20attack"  widht="100" height="300" alt="web attack"> 
 
 
 
