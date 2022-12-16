@@ -25,33 +25,10 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
 <b>Don't Be Evil!!</b> <i>Author tidak akan bertanggung jawab atas, perbuatan yang kalian lakukan!!</i>
 ***
  
-# Screenshot Menu:
+# Screenshot 
 
 <img src="/images/menu" widht=68000px height=300px alt="menu"> <img src="/images/information%20gathering" widht=68000px height=300px alt="information gathering">
-
-
-# Screenshoot Information-Gathering {RECON}
-
-<img src="/images/information%20gathering" widht=68000px height=300px>
-
-# Screenshoot Exploit-Attack
-
-
-![createpay](https://user-images.githubusercontent.com/46388169/172134380-2c75967e-5afa-485c-938d-185fadd94d92.jpg)
-
-![androidbackdor](https://user-images.githubusercontent.com/46388169/172135018-78f974f8-14de-4456-a482-c5d000ca3150.jpg)
-
-![listerner](https://user-images.githubusercontent.com/46388169/172135062-a50ca3e4-ef8c-474b-a75a-83e982afa081.jpg)
-
-# Screenshoot Web-Attack
-
-![sql](https://user-images.githubusercontent.com/46388169/172135304-7abdf8c1-5da4-47ea-b8a0-a8cbede7d074.jpg)
-
-
-# Screenshoot MITM-Attack
-
-![mitm](https://user-images.githubusercontent.com/46388169/172135775-69b57f71-e228-41b1-8354-e864d58ead60.jpg)
-
+<img src="/images/exploit%20attack" widht=68000px height=300px alt="exploit attack"> <img src="/images/web%20attack" widht=68000px height=300px alt="web attack">
 
 
 
