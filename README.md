@@ -21,9 +21,9 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
  ```
  
 ## Disclaimer
-*** 
+```
 <b>Don't Be Evil!!</b> <i>Author tidak akan bertanggung jawab atas, perbuatan yang kalian lakukan!!</i>
-***
+```
  
 # Screenshot 
 <img src="/images/menu" alt="menu" style="width:503px;height:310px;"> <img src="/images/information%20gathering" alt="information gathering" style="width:503px;height:310px;">
