@@ -31,7 +31,7 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
 
 # Screenshoot Information-Gathering {RECON}
 
-![information](https://user-images.githubusercontent.com/46388169/172133777-c77a84d9-dc6d-4168-b12f-9334243ad20f.jpg)
+<img src="/images/information%20gathering" widht=68000px height=300px>
 
 # Screenshoot Exploit-Attack
 
