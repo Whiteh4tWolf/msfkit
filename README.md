@@ -1,6 +1,6 @@
 ## MSFKIT - FRAMEWORK V.1
 ```
-Author : K1M4K-ID Founder { IPT - Invisible Protect Team }
+Author : K1M4K-ID Founder { HRA - Human Cyber Security }
 ```
 
 ## Dependencies
@@ -10,6 +10,8 @@ Author : K1M4K-ID Founder { IPT - Invisible Protect Team }
 * Zenity
 * Aapt
 * Apktool
+* java 8
+* python3
 * Zipalign
 ```
 
@@ -25,7 +27,7 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
  
 # Screenshot Menu:
 
-![20220404_071234](https://user-images.githubusercontent.com/46388169/161455347-4d120f02-c18a-4b5f-96aa-cf369512dbce.jpg)
+<img src="/images/menu" widht=100px height=50px>
 
 # Screenshoot Information-Gathering {RECON}
 
