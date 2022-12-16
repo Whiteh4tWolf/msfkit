@@ -27,7 +27,7 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
  
 # Screenshot Menu:
 
-<img src="/images/menu" widht=8000px height=300px>
+<img src="/images/menu" widht=68000px height=300px>
 
 # Screenshoot Information-Gathering {RECON}
 
