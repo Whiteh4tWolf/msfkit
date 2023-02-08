@@ -171,9 +171,10 @@ if [ -f /usr/local/bin/apktool ]; then
 if [ -f /usr/bin/java ]; then
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m java is already exists!\n"
     else
-    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java 11!\n"
-    sudo apt-get install openjdk-11-jdk -y
-    apt-get install openjdk-11-jre -y
+    #printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java 11!\n"
+    #sudo apt-get install openjdk-11-jdk -y
+    #apt-get install openjdk-11-jre -y
+    # java 8 installed
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java 8!\n"
     apt-get install nvidia-openjdk-8-jre -y;export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java" 1177
     fi
@@ -229,6 +230,15 @@ if [ -f /usr/bin/jarsigner ]; then
     apt-get install default-jdk -y
     fi
     sleep 0.025
+    
+if [ -f /usr/bin/xterm ]; then
+    printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m xterm is already exists!\n"
+    else
+    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing xterm!\n"
+    apt-get install default-jdk -y
+    fi
+    sleep 0.025
+
 
 # kali linux 2022.1 fix unable to locacate
 # alternative error scrcpy, unable to locate
