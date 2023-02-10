@@ -1,8 +1,4 @@
-<img title="K1M4K-ID" src="https://img.shields.io/github/languages/code-size/K1M4K-ID/msfkit?label=MSFKIT%20-%20FRAMEWORK&logo=GitHub&style=for-the-badge"> [![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-
-[![K1M4K-ID](https://github.com/K1M4K-ID/msfkit/workflows/K1M4K-ID/badge.svg)](https://github.com/K1M4K-ID/msfkit/actions?query=workflow:"K1M4K-ID")
-[![GitHub tag](https://img.shields.io/github/tag/K1M4K-ID/msfkit?include_prereleases=&sort=semver&color=blue)](https://github.com/K1M4K-ID/msfkit/releases/)
-[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+<img title="K1M4K-ID" src="https://img.shields.io/github/languages/code-size/K1M4K-ID/msfkit?label=MSFKIT%20-%20FRAMEWORK&logo=GitHub&style=for-the-badge"> <img title="K1M4K-ID" src="https://img.shields.io/github/repo-size/K1M4K-ID/msfkit?label=size%20repository&style=for-the-badge"> 
 
 
 ```
