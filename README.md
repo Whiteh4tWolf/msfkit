@@ -18,9 +18,7 @@ Author : K1M4K-ID Founder { HRA - Human Cyber Security }
 ```
 
 ## Description
- ```
 Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sniffing, information gathering & social enggineering
- ```
  
 ## Disclaimer
 Don't Be Evil!!, Author tidak akan bertanggung jawab atas, perbuatan yang kalian lakukan!!
