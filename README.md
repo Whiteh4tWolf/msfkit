@@ -33,15 +33,15 @@ Don't Be Evil!!, Author tidak akan bertanggung jawab atas, perbuatan yang kalian
 <img src="/images/wifi%20attack" alt="wireless attack" style="width:400px;height:310px;"> <img src="/images/sniffing" alt="sniffing" style="width:400px;height:310px;"> 
 <img src="/images/social%20engineering" alt="social engineering" style="width:505px;height:380px;margin: 90px;width: 97%;">
 
-## Features : 
-```  
-1.) Information Gathering           > tools mencari informasi, mengumpulkan data
-2.) Exploit Attack Metasploit       > tools exploit, dengan metasploit-framework { create payload, embed payload, listerner }
-3.) Web Attack                      > tools web attack, Xss dan sql injection, dirsearch, subdomain enumeration
-4.) Wireless Attack {New}           > tools wifi attack, Fluxion - Evillimiter
-5.) Sniffing & MITM ATTACK {New}    > tools penyadapan dan serangan ManInTheMidle Attack
-6.) Social Enggineering {new}       > tools rekayasa sosial, spoofing, phising attack, tracking location
-```
+
+#### msfkit version 2.0
+- ```1. information gathering``` - reconaiscence & foot printing
+- ```2. exploit android attack``` - automate metasploit-framework ( create payload, inject payload, listernet )
+- ```3. website attack``` - website aplication attack, sql, xss, waff, wordpress scanner
+- ```4. wireless attack``` - attack wireless, airgeddon, evil-limiter
+- ```5. sniffing & mitm attack``` - sniifer network, ManInTheMidle attack
+- ```6. social engineering``` - social engineering attack, tracking location, phising, spoofing
+
 ## Instalation For Kali Linux, Parrot Os, Nethunter, Ubuntu (Dicoba Aja)
 ```
 * cloning tools
