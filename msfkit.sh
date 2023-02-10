@@ -162,6 +162,9 @@ if [ -f /usr/bin/python3 ]; then
 if [ -f /usr/local/bin/apktool ]; then
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m apktool is ${GREEN}Installed.\n"
     else
+    sleep 0.025
+    printf "\033[37;1m[\033[31;1m*\033[37;1m]\033[37;1m remove apktool & update configurations, please wait...\n"
+    apt-get --purge remove apktool -y &> /dev/null
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing apktool!\n"
     wget --no-check-certificate "https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool" -O /usr/local/bin/apktool && chmod +x /usr/local/bin/apktool
     wget --no-check-certificate "https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.6.1.jar" -O /usr/local/bin/apktool.jar && chmod +x /usr/local/bin/apktool.jar
@@ -171,10 +174,9 @@ if [ -f /usr/local/bin/apktool ]; then
 if [ -f /usr/bin/java ]; then
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m java is already exists!\n"
     else
-    #printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java 11!\n"
-    #sudo apt-get install openjdk-11-jdk -y
-    #apt-get install openjdk-11-jre -y
-    # java 8 installed
+    sleep 0.025
+    printf "\033[37;1m[\033[31;1m*\033[37;1m]\033[37;1m remove java & update configurations, please wait...\n"
+    apt-get --purge remove openjdk-11-jre openjdk-11-jdk -y &> /dev/null;apt autoremove -y &> /dev/null
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing java 8!\n"
     apt-get install nvidia-openjdk-8-jre -y;export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64";update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java" 1177
     fi
@@ -230,23 +232,13 @@ if [ -f /usr/bin/jarsigner ]; then
     apt-get install default-jdk -y
     fi
     sleep 0.025
-    
-if [ -f /usr/bin/xterm ]; then
-    printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m xterm is already exists!\n"
-    else
-    printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing xterm!\n"
-    apt-get install default-jdk -y
-    fi
-    sleep 0.025
-
 
 # kali linux 2022.1 fix unable to locacate
-# alternative error scrcpy, unable to locate
 if [ -f /usr/bin/scrcpy ]; then
     printf "\033[31;1m[\033[32;1mOK\033[31;1m]\033[37;1m scrcpy is already exists!\n"
     else
     printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m installing scrcpy!\n"
-	sudo apt-get install scrcpy -y
+    sudo apt-get install scrcpy -y
     fi
     sleep 0.025
 
@@ -266,9 +258,9 @@ function menu(){
         sleep 0.025
         printf "\033[31;1m\t[\033[32;1m2\033[31;1m]\033[37;1m exploit attack metasploit\n"
         sleep 0.025
-        printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m web attack xss & sql injection\n"
+        printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m website aplication attack\n"
         sleep 0.025
-        printf "\033[31;1m\t[\033[32;1m4\033[31;1m]\033[37;1m wifi attack\n"
+        printf "\033[31;1m\t[\033[32;1m4\033[31;1m]\033[37;1m wireless attack\n"
         sleep 0.025
         printf "\033[31;1m\t[\033[32;1m5\033[31;1m]\033[37;1m sniffing & manInThemidle attack\n"
         sleep 0.025
@@ -343,6 +335,14 @@ function web_attack(){
         printf "\033[31;1m\t[\033[32;1m3\033[31;1m]\033[37;1m dirsearch \033[31;1m(\033[32;1mfor find hidden directory\033[31;1m)\n"
         sleep 0.025
         printf "\033[31;1m\t[\033[32;1m4\033[31;1m]\033[37;1m subdomain enumeration \033[31;1m(\033[32;1mfor find subdomain\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m5\033[31;1m]\033[37;1m waff detection \033[31;1m(\033[32;1mchecking active firewall\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m6\033[31;1m]\033[37;1m cmseek \033[31;1m(\033[32;1mcms detection & exploitation suite\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m7\033[31;1m]\033[37;1m wps-scanning \033[31;1m(\033[32;1mwordpress scanning\033[31;1m)\n"
+        sleep 0.025
+        printf "\033[31;1m\t[\033[32;1m8\033[31;1m]\033[37;1m whatweb \033[31;1m(\033[32;1mreconaiscence\033[31;1m)\n"
         sleep 0.025
         printf "\033[31;1m\t[\033[32;1m0\033[31;1m]\033[37;1m back\033[31;1m\n\n"
         sleep 0.025
@@ -733,16 +733,6 @@ function listener_kali(){
 # sign Backdoor file manual inject
 #
 function sign_orig(){
-#        printf "\033[37;1m[\033[32;1m*\033[37;1m] memeriksa .android/key.keystore untuk penandatanganan\033[31;1m\n"
-#        echo
-#if [ ! -f $mypath/.android/sign.jar ]; then
-#        printf "\033[37;1m[\033[31;1mx\033[37;1m] Kunci debug tidak ditemukan. membuatnya sekarang\033[31;1m\n"
-#        echo
-#        if [ ! -d ".android"  ]; then
-#        mkdir .android > /dev/null
-#        fi
-#        keytool -genkey -v -keystore .android/key.keystore -storepass android -alias key -keypass android -keyalg RSA -keysize 2048 -validity 10000
-#fi
         printf "\033[37;1m[\033[32;1m*\033[37;1m] sign your backdoor\033[31;1m\n"
         java -jar $path/Malware/.android/sign.jar ori.apk;mv ori.s.apk ori.apk > /dev/null 2>&1
         printf "\033[37;1m[\033[32;1m*\033[37;1m] signed backdoor,\033[32;1m succesfully\033[31;1m\n"
@@ -1855,26 +1845,24 @@ function sqli(){
     read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
-    spiner
     echo
         if [ $xyz = "1"  ];
         then
 
                 if [[ -d $path/.data/sql-injection ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1msql-injection already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
                 echo
                 sleep 2
                 clear
                 else
+                echo
                 printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m sql-injection \033[31;1mnot found\033[37;1m, installing sql-injection!\n"
                 cd $path/.data > /dev/null
                 git clone https://github.com/K1M4K-ID/sql-injection > /dev/null 2>&1
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
                 echo
-
+                sleep 2
                 fi
 
         cd $path/.data/sql-injection;bash sql-injection.sh
@@ -1885,19 +1873,18 @@ function sqli(){
         then
 					if [[ -d $path/.data/sql-injection ]]; then
 					printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1msql-injection already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-					spiner
 					echo
 					sleep 2
 					clear
 					else
+                                        echo
 					printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m sql-injection \033[31;1mnot found\033[37;1m, installing sql-injection!\n"
 					cd $path/.data > /dev/null
 					git clone https://github.com/K1M4K-ID/sql-injection > /dev/null 2>&1
 					printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
 					printf '\033[31;1m'
-					spiner
 					echo
-
+                                        sleep 2
 					fi
         printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
 				sleep 2
@@ -1932,27 +1919,25 @@ function xss(){
     read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
-    spiner
     echo
         if [ $xyz = "1"  ];
         then
 
                 if [[ -d $path/.data/xss ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mxss already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
                 echo
                 sleep 2
                 clear
                 else
+                echo
                 printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m xss \033[31;1mnot found\033[37;1m, installing xss!\n"
                 cd $path/.data > /dev/null
                 git clone https://github.com/K1M4K-ID/xss > /dev/null 2>&1
-								sleep 0.025
+		sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
                 echo
-
+                sleep 2
                 fi
 
         cd $path/.data/xss;python3 payloader.py
@@ -1963,24 +1948,23 @@ function xss(){
         then
 					if [[ -d $path/.data/xss ]]; then
 					printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mxss already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-					spiner
 					echo
 					sleep 2
 					clear
 					else
+                                        echo
 					printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m xss \033[31;1mnot found\033[37;1m, installing xss!\n"
 					cd $path/.data > /dev/null
 					git clone https://github.com/K1M4K-ID/xss > /dev/null 2>&1
 					sleep 0.025
 					printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
 					printf '\033[31;1m'
-					spiner
 					echo
-
+                                        sleep 2
 					fi
         printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\n"
-				sleep 2
-				clear
+	sleep 2
+	clear
         cd $path/.data/xss;python3 payloader.py
         sleep 3
         xss
@@ -2008,6 +1992,7 @@ function exec_dirsearch1(){
 	echo
 	dirsearch -u $target
 	sleep 0.025
+        sleep 3
 	printf '\033[31;1m'
 	echo
 	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
@@ -2038,6 +2023,7 @@ function exec_dirsearch2(){
 	echo
 	dirsearch -e $ext -u $target -r -R 3
 	sleep 0.025
+        sleep 3
 	printf '\033[31;1m'
 	echo
 	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
@@ -2069,14 +2055,12 @@ function dirsec(){
     read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
-    spiner
     echo
         if [ $xyz = "1"  ];
         then
 
                 if [[ -f /usr/bin/dirsearch ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mdirsearch already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
                 echo
                 sleep 2
                 clear
@@ -2086,8 +2070,8 @@ function dirsec(){
 		sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
                 echo
+                sleep 2
 
                 fi
 	    baner
@@ -2103,8 +2087,7 @@ function dirsec(){
 	    sleep 0.025
 	    printf '\033[31;1m'
 	    echo
-	    spiner
-	    echo
+	    sleep 2
 	    echo
 	   	if [[ $xyz = "1" ]];
 	   	then
@@ -2124,7 +2107,6 @@ function dirsec(){
         then
 		if [[ -f /usr/bin/dirsearch ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mdirsearch already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
                 echo
                 sleep 2
                 clear
@@ -2134,8 +2116,8 @@ function dirsec(){
 		sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
                 echo
+                sleep 2
 
                 fi
                 
@@ -2151,8 +2133,6 @@ function dirsec(){
 	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
 	    sleep 0.025
 	    printf '\033[31;1m'
-	    echo
-	    spiner
 	    echo
 	    echo
 	   	if [[ $xyz = "1" ]];
@@ -2190,6 +2170,7 @@ function exec_sublist3r1(){
 	echo
 	sublist3r -v -d $target
 	sleep 0.025
+        sleep 3
 	printf '\033[31;1m'
 	echo
 	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
@@ -2220,6 +2201,7 @@ function exec_sublist3r2(){
 	echo
 	sublist3r -v -d $target -p $pots
 	sleep 0.025
+        sleep 3
 	printf '\033[31;1m'
 	echo
 	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
@@ -2251,25 +2233,25 @@ function subdomain(){
     read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
     sleep 0.025
     printf '\033[31;1m'
-    spiner
     echo
         if [ $xyz = "1"  ];
         then
 
                 if [[ -f /usr/bin/sublist3r ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1msublist3r already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
                 echo
                 sleep 2
                 clear
                 else
+                echo
                 printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m sublist3r \033[31;1mnot found\033[37;1m, installing sublist3r!\n"
                 apt-get install sublist3r -y &> /dev/null
 		sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
                 echo
+                sleep 2
+                clear
 
                 fi
 	    baner
@@ -2284,8 +2266,6 @@ function subdomain(){
 	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
 	    sleep 0.025
 	    printf '\033[31;1m'
-	    echo
-	    spiner
 	    echo
 	    echo
 	   	if [[ $xyz = "1" ]];
@@ -2306,7 +2286,6 @@ function subdomain(){
         then
 		if [[ -f /usr/bin/sublist3r ]]; then
                 printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1msublist3r already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
-                spiner
                 echo
                 sleep 2
                 clear
@@ -2316,8 +2295,8 @@ function subdomain(){
 		sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
-                spiner
                 echo
+                sleep 2
 
                 fi
                 
@@ -2333,8 +2312,6 @@ function subdomain(){
 	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
 	    sleep 0.025
 	    printf '\033[31;1m'
-	    echo
-	    spiner
 	    echo
 	    echo
 	   	if [[ $xyz = "1" ]];
@@ -2360,8 +2337,527 @@ function subdomain(){
         fi
 }
 
+function exec_wafw00f(){
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+	sleep 0.025
+	echo
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> kompas.com\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] url  : "'\033[34;1m')" target
+	printf '\033[31;1m'
+	printf '\033[37;1m'
+	echo
+	wafw00f $target
+	sleep 0.025
+        sleep 3
+	printf '\033[31;1m'
+	echo
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	exec_wafw00f
+
+	else [ $scan != "y" ]
+	wafwoof
+	fi
+	done
+}
+
+# firewall chekking - wafw00f
+function wafwoof(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall wafw00f\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun wafw00f\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -f /usr/bin/wafw00f ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mwafw00f already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m wafw00f \033[31;1mnot found\033[37;1m, installing wafw00f!\n"
+                apt-get install wafw00f -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mchecking firewall\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_wafw00f
+	   	elif [[ $xyz = "0" ]];
+	   	then
+	   		wafwoof
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m please input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+	    	
+	    	
+
+        elif [ $xyz = "2"  ];
+        then
+		if [[ -f /usr/bin/wafw00f ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mwafw00f already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m wafw00f \033[31;1mnot found\033[37;1m, installing wafw00f!\n"
+                apt-get install wafw00f -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mchecking firewall\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_wafw00f
+	   	elif [[ $xyz = "0" ]];
+	   	then
+	   		wafwoof
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m please input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        wafwoof
+        fi
+}
+
+# cmseek
+function cmseek(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall cmseek\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun cmseek\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -d $path/.data/CMSeeK ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mcmseek already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m cmseek \033[31;1mnot found\033[37;1m, installing cmseek!\n"
+                cd $path/.data > /dev/null
+                git clone https://github.com/Tuhinshubhra/CMSeeK > /dev/null 2>&1
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+
+                fi
+
+        cd $path/.data/CMSeeK;python3 cmseek.py
+        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	cd $path/.data/CMSeeK;python3 cmseek.py
+
+	else [ $scan != "y" ]
+	cmseek
+	fi
+	done
+
+        cmseek
+        sleep 2
+
+        elif [ $xyz = "2"  ];
+        then
+                if [[ -d $path/.data/CMSeeK ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mcmseek already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m cmseek \033[31;1mnot found\033[37;1m, installing cmseek!\n"
+                cd $path/.data > /dev/null
+                git clone https://github.com/Tuhinshubhra/CMSeeK > /dev/null 2>&1
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+
+                fi
+
+        cd $path/.data/CMSeeK;python3 cmseek.py
+        read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	cd $path/.data/CMSeeK;python3 cmseek.py
+
+	else [ $scan != "y" ]
+	cmseek
+	fi
+	done
+        cmseek
+        sleep 2
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        cmseek
+        fi
+}
+
+function exec_wpscan(){
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+	sleep 0.025
+	echo
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> http://example.com\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] url  : "'\033[34;1m')" target
+	printf '\033[31;1m'
+	printf '\033[37;1m'
+	echo
+	wpscan --url $target --random-user-agent
+	sleep 0.025
+        sleep 3
+	printf '\033[31;1m'
+	echo
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	exec_wpscan
+
+	else [ $scan != "y" ]
+	wpscaning
+	fi
+	done
+}
+
+# wordpress scanning
+function wpscaning(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall wpscan\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun wpscan\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -f /usr/bin/wpscan ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mwpscan already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m wpscan \033[31;1mnot found\033[37;1m, installing wpscan!\n"
+                apt-get install wpscan -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mstarting scaning\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_wpscan
+	   	elif [[ $xyz = "0" ]];
+	   	then
+	   		wpscaning
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m please input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+	    	
+	    	
+
+        elif [ $xyz = "2"  ];
+        then
+		if [[ -f /usr/bin/wpscan ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mwpscan already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m wpscan \033[31;1mnot found\033[37;1m, installing wpscan!\n"
+                apt-get install wpscan -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mstarting scaning\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_wpscan
+	   	elif [[ $xyz = "0" ]];
+	   	then
+	   		wpscaning
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m please input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        wpscaning
+        fi
+}
+
+function exec_wwhatweb(){
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
+	sleep 0.025
+	echo
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m example >> http://example.com\n"
+	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m\n"
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] url  : "'\033[34;1m')" target
+	printf '\033[31;1m'
+	printf '\033[37;1m'
+	echo
+	wpscan --url $target --random-user-agent
+	sleep 0.025
+        sleep 3
+	printf '\033[31;1m'
+	echo
+	read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] scan ulang [y/n] : "'\033[34;1m')" scan
+	echo
+	while true
+	do
+	if [ $scan = "y"  ];
+	then
+	exec_wpscan
+
+	else [ $scan != "y" ]
+	wpscaning
+	fi
+	done
+}
 
 
+# foot printing
+function whatwebs(){
+    clear
+    baner
+    echo
+    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1minstall whatweb\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m2\033[31;1m] \033[37;1mrun whatweb\033[31;1m\n"
+    sleep 0.025
+    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+    sleep 0.025
+    echo
+    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+    sleep 0.025
+    printf '\033[31;1m'
+    echo
+        if [ $xyz = "1"  ];
+        then
+
+                if [[ -f /usr/bin/whatweb ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mwhatweb already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m whatweb \033[31;1mnot found\033[37;1m, installing whatweb!\n"
+                apt-get install wpscan -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mstarting scaning\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_wwhatweb
+	   	elif [[ $xyz = "0" ]];
+	   	then
+	   		whatwebs
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m please input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+	    	
+	    	
+
+        elif [ $xyz = "2"  ];
+        then
+		if [[ -f /usr/bin/whatweb ]]; then
+                printf "\033[31;1m[\033[32;1m✔\033[31;1m] \033[37;1mwhatweb already installed\033[31;1m [\033[32;1mOK\033[31;1m]\n"
+                echo
+                sleep 2
+                clear
+                else
+                printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m whatweb \033[31;1mnot found\033[37;1m, installing whatweb!\n"
+                apt-get install wpscan -y &> /dev/null
+		sleep 0.025
+                printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
+                printf '\033[31;1m'
+                echo
+                sleep 2
+
+                fi
+	    baner
+	    echo
+	    printf "\033[31;1m\t[\033[32;1m1\033[31;1m] \033[37;1mstarting scaning\033[31;1m\n"
+	    sleep 0.025
+	    printf "\033[31;1m\t[\033[32;1m0\033[31;1m] \033[37;1mkembali\033[31;1m\n"
+	    sleep 0.025
+	    echo
+	    read -p "$(printf "\033[31;1m\t[\033[32;1m*\033[31;1m] choice : "'\033[34;1m')" xyz
+	    sleep 0.025
+	    printf '\033[31;1m'
+	    echo
+	    echo
+	   	if [[ $xyz = "1" ]];
+	   	then
+	   		exec_wwhatweb
+	   	elif [[ $xyz = "0" ]];
+	   	then
+	   		whatwebs
+	   	else
+	   		printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m please input in number\033[37;1m, [1-2]!\n"
+	   		sleep 2
+	   	fi
+	   
+
+        elif [ $xyz = "0"  ];
+        then
+        run_lainya
+
+        else
+        printf "\033[37;1m[\033[31;1m!\033[37;1m]\033[37;1m masukan input dengan benar\n"
+        sleep 2
+        whatwebs
+        fi
+}
 # fungsi untuk menjalankan menu untuk web attack
 function run_web_attack(){
         clear
@@ -2388,6 +2884,27 @@ function run_web_attack(){
                 subdomain
                 run_web_attack
 
+                elif [ $xyz = "5"  ];
+                then
+                wafwoof
+                run_web_attack
+                  
+                elif [ $xyz = "6"  ];
+                then
+                cmseek
+                run_web_attack
+
+
+                elif [ $xyz = "7"  ];
+                then
+                wpscaning
+                run_web_attack
+
+                elif [ $xyz = "8"  ];
+                then
+                whatwebs
+                run_web_attack
+                
 
                 elif [ $xyz = "0"  ];
                 then
@@ -2764,16 +3281,16 @@ printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Version  : Beta V1\n"
 echo
 
   read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m From Name   : "'\033[32;1m\n')" name
-  read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m From mail   : "'\033[32;1m\n')" email
+  read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m From mail   : "'\033[32;1m\n')" mail
   read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Send To     : "'\033[32;1m\n')" to   
   read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Subject     : "'\033[32;1m\n')" sub 
   read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Message     : "'\033[32;1m\n\n')" mes
   echo ""
   read -p "$(printf " * * * Enter To Send! * * *")" scan
-  curl --data "sender=$email&to=$to&subject=$sub&message=$mes&name=$name" https://kimak-id.000webhostapp.com/send.php > /dev/null 2>&1
+  curl --data "name=$name&sender=$mail&email=$to&subject=$sub&message=$mes" https://k1m4k-id.000webhostapp.com/email.php &> /dev/null
   printf "\n\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m successfully sendent!..\n"
   sleep 2s
-  read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m] kirim ulang [y/n] : "'\033[34;1m')" scan
+  read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m kirim ulang [y/n] : "'\033[34;1m')" scan
         echo
         while true
         do
