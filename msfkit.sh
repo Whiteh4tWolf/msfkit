@@ -2717,7 +2717,7 @@ function wpscaning(){
         fi
 }
 
-function exec_wwhatweb(){
+function exec_whatweb(){
 	printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m starting . . .\033[31;1m\n"
 	sleep 0.025
 	echo
@@ -2727,7 +2727,7 @@ function exec_wwhatweb(){
 	printf '\033[31;1m'
 	printf '\033[37;1m'
 	echo
-	wpscan --url $target --random-user-agent
+	whatweb -v $target
 	sleep 0.025
         sleep 3
 	printf '\033[31;1m'
@@ -2738,10 +2738,10 @@ function exec_wwhatweb(){
 	do
 	if [ $scan = "y"  ];
 	then
-	exec_wpscan
+	exec_whatweb
 
 	else [ $scan != "y" ]
-	wpscaning
+	whatwebs
 	fi
 	done
 }
@@ -2773,7 +2773,7 @@ function whatwebs(){
                 clear
                 else
                 printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m whatweb \033[31;1mnot found\033[37;1m, installing whatweb!\n"
-                apt-get install wpscan -y &> /dev/null
+                apt-get install whatweb -y &> /dev/null
 		sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
@@ -2795,7 +2795,7 @@ function whatwebs(){
 	    echo
 	   	if [[ $xyz = "1" ]];
 	   	then
-	   		exec_wwhatweb
+	   		exec_whatweb
 	   	elif [[ $xyz = "0" ]];
 	   	then
 	   		whatwebs
@@ -2816,7 +2816,7 @@ function whatwebs(){
                 clear
                 else
                 printf "\033[37;1m[\033[31;1mX\033[37;1m]\033[37;1m whatweb \033[31;1mnot found\033[37;1m, installing whatweb!\n"
-                apt-get install wpscan -y &> /dev/null
+                apt-get install whatweb -y &> /dev/null
 		sleep 0.025
                 printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m installing\033[32;1m succesfully\033[31;1m\n"
                 printf '\033[31;1m'
@@ -2838,7 +2838,7 @@ function whatwebs(){
 	    echo
 	   	if [[ $xyz = "1" ]];
 	   	then
-	   		exec_wwhatweb
+	   		exec_whatweb
 	   	elif [[ $xyz = "0" ]];
 	   	then
 	   		whatwebs
