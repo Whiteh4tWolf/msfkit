@@ -1,5 +1,7 @@
 <img title="K1M4K-ID" src="https://img.shields.io/github/languages/code-size/K1M4K-ID/msfkit?label=MSFKIT%20-%20FRAMEWORK&logo=GitHub&style=for-the-badge"> [![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
+[![DenverCoder1's github streak](https://github-readme-streak-stats.herokuapp.com/?user=Naereen&theme=blue-green)](https://github.com/DenverCoder1/github-readme-streak-stats)
+
 ```
 Author : K1M4K-ID Founder { HRA - Human Cyber Security }
 ```
