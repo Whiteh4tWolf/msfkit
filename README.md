@@ -11,7 +11,7 @@ Author : K1M4K-ID Founder { HRA - Human Cyber Security }
 * xterm
 * Zenity
 * Aapt
-* Apktool
+* Apktool 2.6.1
 * java 8
 * python3
 * Zipalign
