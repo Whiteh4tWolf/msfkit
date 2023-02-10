@@ -2586,7 +2586,7 @@ function exec_wpscan(){
 	printf '\033[31;1m'
 	printf '\033[37;1m'
 	echo
-	wpscan --url $target --random-user-agent
+	whatweb -v $target
 	sleep 0.025
         sleep 3
 	printf '\033[31;1m'
