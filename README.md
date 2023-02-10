@@ -23,9 +23,8 @@ Msfkit sebuah tools yang di bangun, untuk melakukan sebuah pentest, exploit, sni
  ```
  
 ## Disclaimer
-***
 Don't Be Evil!!, Author tidak akan bertanggung jawab atas, perbuatan yang kalian lakukan!!
-***
+
  
 # Screenshot 
 <img src="/images/menu" alt="menu" style="width:400px;height:310px;"> <img src="/images/information%20gathering" alt="information gathering" style="width:400px;height:310px;">
@@ -34,7 +33,7 @@ Don't Be Evil!!, Author tidak akan bertanggung jawab atas, perbuatan yang kalian
 <img src="/images/social%20engineering" alt="social engineering" style="width:505px;height:380px;margin: 90px;width: 97%;">
 
 
-# msfkit version 2.0
+## msfkit version 2.0
 - ```1. information gathering``` - reconaiscence & foot printing
 - ```2. exploit android attack``` - automate metasploit-framework ( create payload, inject payload, listernet )
 - ```3. website attack``` - website aplication attack, sql, xss, waff, wordpress scanner
