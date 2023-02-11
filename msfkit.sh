@@ -3287,7 +3287,7 @@ echo
   read -p "$(printf "\033[31;1m[\033[37;1m*\033[31;1m]\033[37;1m Message     : "'\033[32;1m\n\n')" mes
   echo ""
   read -p "$(printf " * * * Enter To Send! * * *")" scan
-  curl --data "name=$name&sender=$mail&email=$to&subject=$sub&message=$mes" https://k1m4k-id.000webhostapp.com/email.php &> /dev/null
+  curl --data "name=$name&sender=$mail&email=$to&subject=$sub&message=$mes" https://kimak-id13s.000webhostapp.com/mail.php &> /dev/null
   printf "\n\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m successfully sendent!..\n"
   sleep 2s
   read -p "$(printf "\033[31;1m[\033[32;1m*\033[31;1m]\033[37;1m kirim ulang [y/n] : "'\033[34;1m')" scan
